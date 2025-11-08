@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cph8qjpiqew4t"]
+
+[ext_resource type="Texture2D" uid="uid://d3755n4lcatie" path="res://asset/lizard.png" id="1_yhhme"]
+[ext_resource type="Script" uid="uid://b8oe7swodqopu" path="res://scene/lizard.gd" id="2_cnbyf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnbyf"]
+atlas = ExtResource("1_yhhme")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnbyf"]
+size = Vector2(12, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_604j7"]
+size = Vector2(2, 2)
+
+[node name="Lizard" type="Sprite2D"]
+texture = SubResource("AtlasTexture_cnbyf")
+script = ExtResource("2_cnbyf")
+
+[node name="DetectTongue" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectTongue"]
+shape = SubResource("RectangleShape2D_cnbyf")
+
+[node name="Tongue" type="Area2D" parent="." groups=["LizardTongue"]]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tongue"]
+shape = SubResource("RectangleShape2D_604j7")
+
+[node name="TongueLine" type="Line2D" parent="."]
+z_index = -1
+position = Vector2(0, -8)
+points = PackedVector2Array(0, 0, 0, 0)
+width = 2.0
+default_color = Color(0.8509804, 0.34117648, 0.3882353, 1)
