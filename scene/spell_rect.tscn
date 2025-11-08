@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvwtus4gkdq1r"]
+
+[ext_resource type="Texture2D" uid="uid://du815u4w13fvj" path="res://asset/sigils.png" id="1_34xen"]
+[ext_resource type="Script" uid="uid://b753ksucdm16p" path="res://scene/spell_rect.gd" id="2_h4tf7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54ly2"]
+atlas = ExtResource("1_34xen")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="Gradient" id="Gradient_34xen"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.87333333, 1)
+colors = PackedColorArray(0, 0, 0, 0.19607843, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h4tf7"]
+gradient = SubResource("Gradient_34xen")
+width = 32
+height = 32
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="SpellRect" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -7.0
+offset_right = -24.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_54ly2")
+stretch_mode = 5
+script = ExtResource("2_h4tf7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 2.0
+offset_bottom = 6.3999977
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_h4tf7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/normal_font_size = 32
+text = "E"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
