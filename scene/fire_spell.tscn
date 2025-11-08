@@ -1,18 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://qdfg6o3r4y47"]
+[gd_scene load_steps=9 format=3 uid="uid://qdfg6o3r4y47"]
 
 [ext_resource type="Script" uid="uid://bdc3shuv4gxyv" path="res://scene/fire_spell.gd" id="1_rvosn"]
+[ext_resource type="Texture2D" uid="uid://croesrkgxnckk" path="res://asset/fireball.png" id="2_lofvj"]
 
-[sub_resource type="Gradient" id="Gradient_rvosn"]
-offsets = PackedFloat32Array(0, 0.62666667, 1)
-colors = PackedColorArray(0.93333334, 0.41568628, 0.19607843, 1, 0.83634686, 0.606099, 0.39538556, 0.49019608, 1, 1, 1, 0)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wyn2"]
+atlas = ExtResource("2_lofvj")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lofvj"]
-gradient = SubResource("Gradient_rvosn")
-width = 32
-height = 32
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
+[sub_resource type="AtlasTexture" id="AtlasTexture_46k7n"]
+atlas = ExtResource("2_lofvj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev08x"]
+atlas = ExtResource("2_lofvj")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m25a"]
+atlas = ExtResource("2_lofvj")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gn0ol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wyn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46k7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev08x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m25a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lofvj"]
 radius = 8.0
@@ -21,9 +46,9 @@ radius = 8.0
 monitoring = false
 script = ExtResource("1_rvosn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = SubResource("GradientTexture2D_lofvj")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gn0ol")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lofvj")

@@ -6,7 +6,7 @@ extends Area2D
 @export var max_scale: float = 5
 
 @onready var collision: CollisionShape2D = $CollisionShape2D
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var alive_for: float = 0
 
