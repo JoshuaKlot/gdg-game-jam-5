@@ -8,13 +8,13 @@ extends Area2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var sprite: Sprite2D = $Sprite2D
 
+var lifetime_inv: float
 var alive_for: float = 0
 
 func _ready() -> void:
-	pass
+	lifetime_inv = 1 / lifetime
 
 func _physics_process(delta: float) -> void:
-	var lifetime_inv = 1 / lifetime
 	if thrown:
 		pass
 	else:

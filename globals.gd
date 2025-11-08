@@ -1,11 +1,12 @@
 extends Node
 
-enum SigNames {
-	Fire,
+enum Spell {
+	FIRE,
 }
-
-var sigils: Dictionary[int, bool] = {}
-
-var spells: Dictionary[int, PackedScene] = {
-	SigNames.Fire: preload("res://scene/fire_spell.tscn")
+const sigil_atlas_coords: Dictionary[int, Vector2i] = {
+	Spell.FIRE: Vector2i(0, 0),
+}
+var collected_sigils: Dictionary[int, bool] = {}
+var spell_scenes: Dictionary[int, PackedScene] = {
+	Spell.FIRE: preload("res://scene/fire_spell.tscn")
 }

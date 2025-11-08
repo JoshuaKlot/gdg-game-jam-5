@@ -30,8 +30,9 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("p_cast"):
-		var spell = Globals.spells.get(Globals.SigNames.Fire).instantiate()
+		var spell = _G.spell_scenes.get(_G.Spell.FIRE).instantiate()
 		spell.global_position = position
+		spell.lifetime = 0.1
 
 		get_tree().root.add_child(spell)
 
@@ -48,9 +49,10 @@ func _physics_process(delta: float) -> void:
 	var player_tile := to_tile_pos(position)
 	debug_infront_tile.global_position = player_tile * sigil_layer.tile_set.tile_size
 
+	const SIGIL_GLOW := Color(2, 2, 2, 1)
 	if near_sigil(player_tile):
 		debug_infront_tile.self_modulate = Color.GREEN
-		sigil_layer.self_modulate = Color.GREEN
+		sigil_layer.self_modulate = SIGIL_GLOW
 	else:
 		debug_infront_tile.self_modulate = Color.WHITE
 		sigil_layer.self_modulate = Color.WHITE
