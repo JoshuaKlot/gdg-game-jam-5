@@ -6,7 +6,7 @@ const ACCEL = 1200.0
 const DECEL = 1000.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-
+@onready var camera:Camera2D=$Camera2D
 var sigil_layer: TileMapLayer = null
 var sigil_glow: float = 0.0
 
@@ -37,6 +37,10 @@ func nearest_sigil(v: Vector2i) -> int:
 
 
 func room_changed() -> void:
+	camera.limit_left=_G.camera_constraints[_G.currentRoom][0]
+	camera.limit_top=_G.camera_constraints[_G.currentRoom][1]
+	camera.limit_right=_G.camera_constraints[_G.currentRoom][2]
+	camera.limit_bottom=_G.camera_constraints[_G.currentRoom][3]
 	sigil_layer = get_tree().get_first_node_in_group("SigilLayer")
 
 func _ready() -> void:

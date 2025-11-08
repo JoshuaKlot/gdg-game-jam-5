@@ -1,14 +1,9 @@
-[gd_resource type="FontFile" load_steps=2 format=3 uid="uid://c6c67l23ldjl8"]
+[gd_resource type="FontFile" load_steps=2 format=3]
 
-[ext_resource type="Image" uid="uid://giduoh6jvbgx" path="res://font-serif.png" id="1_b4jue"]
+[ext_resource type="Image" path="res://font-serif.png" id="1_b4jue"]
 
 [resource]
 allow_system_fallback = false
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
 cache/0/8/0/ascent = 0.0
 cache/0/8/0/descent = 5.0
 cache/0/8/0/underline_position = 0.0
@@ -1136,3 +1131,8 @@ cache/0/8/0/glyphs/255/offset = Vector2(0, 0)
 cache/0/8/0/glyphs/255/size = Vector2(6, 8)
 cache/0/8/0/glyphs/255/uv_rect = Rect2(120, 104, 6, 8)
 cache/0/8/0/glyphs/255/texture_idx = 0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0

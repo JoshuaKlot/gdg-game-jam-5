@@ -3,10 +3,9 @@ extends Node
 enum Spell {
 	FIRE,
 }
-
+var currentRoom=0
 const atlas_tile_size := Vector2i(16, 16)
 const atlas_size := Vector2i(4, 4)
-
 const sigil_atlas_coords: Dictionary[int, Vector2i] = {
 	Spell.FIRE: atlas_tile_size * Vector2i(0, 0),
 }
@@ -51,6 +50,11 @@ var inventory: Dictionary[int, bool] = {}
 enum Room {
 	ENTRANCE,
 	TORCH_PUZ
+}
+
+var camera_constraints:Dictionary[int,Array]={
+	Room.ENTRANCE: [64,-16,288,160],
+	Room.TORCH_PUZ: [0,0,416,288]
 }
 
 # Using preload makes doorway.tscn die, can't use const dict
