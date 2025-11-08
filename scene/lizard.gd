@@ -30,6 +30,7 @@ func rebuild_tweens() -> void:
 	retract_tween.tween_callback(retract_done)
 
 func retract_done() -> void:
+	tongue.monitorable = true
 	extend_count -= 1
 	tongue_line.set_point_position(1, Vector2.ZERO)
 	extending = false
@@ -38,6 +39,7 @@ func retract_done() -> void:
 
 
 func extend_done() -> void:
+	tongue.monitorable = false
 	await get_tree().create_timer(hold_duration).timeout
 	retract_tween.play()
 
@@ -48,9 +50,6 @@ func tongue_detected(a: Area2D):
 	extend_tween.play()
 	extending = true
 	extend_count += 1
-
-	if steppable:
-		print("stepped")
 
 # Only steppable lizards connect this
 func body_entered(b: Node2D) -> void:

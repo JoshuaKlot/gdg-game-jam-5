@@ -24,6 +24,7 @@ shape = SubResource("RectangleShape2D_cnbyf")
 
 [node name="Tongue" type="Area2D" parent="." groups=["LizardTongue"]]
 position = Vector2(0, -8)
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tongue"]
 shape = SubResource("RectangleShape2D_604j7")
