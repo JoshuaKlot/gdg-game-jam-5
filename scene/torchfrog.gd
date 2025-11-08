@@ -15,14 +15,12 @@ func _area_entered(a: Area2D) -> void:
 		enflame()
 
 func room_changed() -> void:
-	if !player:
+	if !player || !_G.inventory.has(_G.Item.TORCHFROG):
 		return
 
 	if jump_tween:
 		jump_tween.stop()
 
-	#top_level = false
-	#position = Vector2.ZERO
 	position = player.position + Vector2(randf() * 8, randf() * 8)
 
 func _ready() -> void:
