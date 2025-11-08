@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://dgl66mjh6d1bg"]
+[gd_scene load_steps=4 format=4 uid="uid://dgl66mjh6d1bg"]
 
 [ext_resource type="TileSet" uid="uid://itlf3q1ll4dv" path="res://asset/tileset.tres" id="1_dbls1"]
 [ext_resource type="PackedScene" uid="uid://b68gom3wdvx83" path="res://scene/player.tscn" id="2_dbls1"]
+[ext_resource type="PackedScene" uid="uid://beppvlffivbr4" path="res://scene/torch.tscn" id="3_33cqm"]
 
 [node name="Game" type="Node2D"]
 
@@ -15,3 +16,6 @@ tile_map_data = PackedByteArray("AAAGAAAAAQAAAAAAAAA=")
 tile_set = ExtResource("1_dbls1")
 
 [node name="Player" parent="." instance=ExtResource("2_dbls1")]
+
+[node name="Torch" parent="." instance=ExtResource("3_33cqm")]
+position = Vector2(511, 115)

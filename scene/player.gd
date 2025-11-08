@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 320.0
-const DECEL = 200.0
+const DECEL = 45.0
 
 var sigil_layer: TileMapLayer = null
 
@@ -28,7 +28,7 @@ func _ready() -> void:
 	sigil_layer = get_tree().get_first_node_in_group("SigilLayer")
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("p_collect"):
+	if event.is_action_pressed("p_cast"):
 		var spell = Globals.spells.get(Globals.SigNames.Fire).instantiate()
 		spell.global_position = position
 

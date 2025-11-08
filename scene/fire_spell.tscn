@@ -15,12 +15,12 @@ fill_to = Vector2(1, 0.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_lofvj"]
 radius = 32.0
 
-[node name="FireSpell" type="Area2D"]
+[node name="FireSpell" type="Area2D" groups=["Flaming", "Throwable"]]
+monitoring = false
 script = ExtResource("1_rvosn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_lofvj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_lofvj")
