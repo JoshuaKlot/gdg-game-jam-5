@@ -3,7 +3,7 @@ extends Node
 enum Spell {
 	FIRE,
 }
-const sigil_atlas_coords: Dictionary[int, Vector2i] = {
+const sigil_atlas_coords: Dictionary[int, Vector2] = {
 	Spell.FIRE: Vector2i(0, 0),
 }
 var collected_sigils: Dictionary[int, bool] = {}
