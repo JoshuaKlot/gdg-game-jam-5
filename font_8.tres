@@ -1,6 +1,6 @@
-[gd_resource type="FontFile" load_steps=2 format=3]
+[gd_resource type="FontFile" load_steps=2 format=3 uid="uid://bjc1bcep8pa5s"]
 
-[ext_resource type="Image" path="res://font-serif.png" id="1_b4jue"]
+[ext_resource type="Image" uid="uid://giduoh6jvbgx" path="res://font-serif.png" id="1_b4jue"]
 
 [resource]
 allow_system_fallback = false
