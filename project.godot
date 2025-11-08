@@ -21,9 +21,10 @@ _G="*res://globals.gd"
 
 [display]
 
-window/size/viewport_width=512
-window/size/viewport_height=384
+window/size/viewport_width=256
+window/size/viewport_height=192
 window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [global_group]
 
@@ -94,6 +95,7 @@ cast_cancel={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.20784314, 0.20784314, 0.27450982, 1)
