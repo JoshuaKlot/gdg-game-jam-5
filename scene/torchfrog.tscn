@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://beppvlffivbr4"]
+
+[ext_resource type="Texture2D" uid="uid://c3wqu1sjpi1yp" path="res://asset/torchfrog.png" id="1_6wjlc"]
+[ext_resource type="Script" uid="uid://cq81ghyyvy0nf" path="res://scene/torchfrog.gd" id="1_lf4n2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wjlc"]
+atlas = ExtResource("1_6wjlc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icg1l"]
+size = Vector2(16, 16)
+
+[node name="TorchFrog" type="Sprite2D"]
+texture = SubResource("AtlasTexture_6wjlc")
+script = ExtResource("1_lf4n2")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Flammable"]]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_icg1l")

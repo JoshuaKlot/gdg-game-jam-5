@@ -17,6 +17,7 @@ signal sigil_collected(sigil: int)
 var spell_scenes: Dictionary[int, PackedScene] = {
 	Spell.FIRE: preload("res://scene/fire_spell.tscn")
 }
+signal request_cast_spell(spell: int)
 
 func collect_sigil(s: int) -> bool:
 	if s in collected_sigils:
@@ -40,7 +41,7 @@ func coords_to_sigil(v: Vector2i) -> int:
 
 
 enum Item {
-	TORCH,
+	TORCHFROG,
 }
 
 var inventory: Dictionary[int, bool] = {}

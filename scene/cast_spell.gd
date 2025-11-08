@@ -24,3 +24,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("cast_cancel") and casting:
 		casting = false
 		visible = false
+
+	if event.is_action_pressed("cast_slot0") and casting:
+		_G.request_cast_spell.emit(0)
+		casting = false
+		visible = false

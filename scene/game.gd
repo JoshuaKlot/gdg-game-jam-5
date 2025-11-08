@@ -33,8 +33,14 @@ func change_room(room: PackedScene) -> void:
 	_G.room_changed.emit()
 	player.set_deferred("process_mode", PROCESS_MODE_INHERIT)
 
+func cast_spell(spell: int) -> void:
+	var new := _G.spell_scenes[spell].instantiate()
+	new.position = player.position
+	add_child(new)
+
 func _ready() -> void:
 	_G.request_room_change.connect(change_room)
+	_G.request_cast_spell.connect(cast_spell)
 
 	player = PLAYER.instantiate()
 	change_room(ENTRANCE)
