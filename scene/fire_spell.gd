@@ -18,10 +18,7 @@ func _ready() -> void:
 
 	tween.play()
 
-	print(Time.get_ticks_msec())
-
 func _physics_process(_delta: float) -> void:
 	if tween.is_running():
 		return
 	queue_free()
-	print(Time.get_ticks_msec())
