@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 _G="*res://globals.gd"
 
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=384
+window/stretch/mode="viewport"
+
 [global_group]
 
 Flammable=""
@@ -90,3 +96,6 @@ cast_cancel={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.20784314, 0.20784314, 0.27450982, 1)
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

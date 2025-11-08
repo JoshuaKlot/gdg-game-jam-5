@@ -106,8 +106,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xo3ru"]
-radius = 10.16
-height = 32.0
+radius = 7.0
+height = 16.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
@@ -118,4 +118,6 @@ sprite_frames = SubResource("SpriteFrames_u7b46")
 animation = &"side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_xo3ru")
