@@ -32,6 +32,7 @@ func _ready() -> void:
 	_G.room_changed.connect(room_changed)
 
 func _process(delta: float) -> void:
+	z_index=global_position.y
 	# Sorry, not sorry
 	if !player:
 		player = get_tree().get_first_node_in_group("Player")
