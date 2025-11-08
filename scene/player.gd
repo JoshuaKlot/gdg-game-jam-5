@@ -56,7 +56,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	var move_vec := Vector2.ZERO if camera_shaking else Input.get_vector("p_left", "p_right", "p_up", "p_down")
-
+	z_index=global_position.y
+	
 	if move_vec:
 		velocity = velocity.move_toward(move_vec * SPEED, ACCEL * delta)
 	else:

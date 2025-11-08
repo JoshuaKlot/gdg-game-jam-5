@@ -11,6 +11,7 @@ region = Rect2(0, 0, 16, 16)
 size = Vector2(16, 16)
 
 [node name="TorchFrog" type="Sprite2D"]
+y_sort_enabled = true
 texture = SubResource("AtlasTexture_6wjlc")
 script = ExtResource("1_lf4n2")
 

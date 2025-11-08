@@ -1,10 +1,10 @@
 extends Control
 
 
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var container: HFlowContainer = $HFlowContainer
 @onready var spell_rect := preload("res://scene/spell_rect.tscn")
 
-var casting := false
 
 func append_spell(spell: int) -> void:
 	var new_rect: TextureRect = spell_rect.instantiate()
@@ -18,14 +18,13 @@ func _ready() -> void:
 	_G.sigil_collected.connect(append_spell)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("p_cast") and not casting:
-		casting = true
-		visible = true
-	elif event.is_action_pressed("cast_cancel") and casting:
-		casting = false
-		visible = false
+	if _G.collected_sigils.size() == 0:
+		return
 
-	if event.is_action_pressed("cast_slot0") and casting:
-		_G.request_cast_spell.emit(0)
-		casting = false
-		visible = false
+	if event.is_action_pressed("p_cast") and !_G.casting:
+		_G.casting = true
+		# anim_player.play("appear", -1, 5)
+	elif event.is_action_pressed("cast_cancel") and _G.casting:
+		_G.casting = false
+
+	visible = _G.casting

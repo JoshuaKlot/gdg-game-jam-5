@@ -111,6 +111,7 @@ height = 16.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
+y_sort_enabled = true
 collision_mask = 2
 script = ExtResource("1_xo3ru")
 
