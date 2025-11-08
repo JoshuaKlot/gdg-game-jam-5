@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jds4xt42o2xe"
-path="res://.godot/imported/lizardNormal.png-d03e50958548a39c5377c0281251d22c.ctex"
+uid="uid://dkdrg86cgxcfl"
+path="res://.godot/imported/longsnake.png-678bf90b11053c1bb2d5675912c0aa1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/lizardNormal.png"
-dest_files=["res://.godot/imported/lizardNormal.png-d03e50958548a39c5377c0281251d22c.ctex"]
+source_file="res://sprites/longsnake.png"
+dest_files=["res://.godot/imported/longsnake.png-678bf90b11053c1bb2d5675912c0aa1a.ctex"]
 
 [params]
 
