@@ -37,3 +37,27 @@ func coords_to_sigil(v: Vector2i) -> int:
 		return -1
 
 	return sigil
+
+
+enum Item {
+	TORCH,
+}
+
+var inventory: Dictionary[int, bool] = {}
+
+
+enum Room {
+	ENTRANCE,
+	TORCH_PUZ
+}
+
+# Using preload makes doorway.tscn die, can't use const dict
+var room_to_scene: Dictionary[int, PackedScene] = {
+	Room.ENTRANCE: load("res://scene/rooms/0_entrance.tscn"),
+	Room.TORCH_PUZ: load("res://scene/rooms/1_torch_puzzle.tscn"),
+}
+
+@warning_ignore("unused_signal")
+signal request_room_change(room_scene: PackedScene)
+@warning_ignore("unused_signal")
+signal room_changed

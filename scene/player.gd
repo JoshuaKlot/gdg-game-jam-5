@@ -18,6 +18,9 @@ func to_tile_pos(v: Vector2) -> Vector2i:
 	return sigil_layer.local_to_map(sigil_layer.to_local(v))
 
 func nearest_sigil(v: Vector2i) -> int:
+	if sigil_layer == null:
+		return -1
+
 	const NO_EXIST = Vector2i(-1, -1)
 
 	var coords := sigil_layer.get_cell_atlas_coords(v + Vector2i.UP)
@@ -33,8 +36,11 @@ func nearest_sigil(v: Vector2i) -> int:
 	return _G.coords_to_sigil(coords)
 
 
-func _ready() -> void:
+func room_changed() -> void:
 	sigil_layer = get_tree().get_first_node_in_group("SigilLayer")
+
+func _ready() -> void:
+	_G.room_changed.connect(room_changed)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("p_collect"):
