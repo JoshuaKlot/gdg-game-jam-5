@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 320.0
-const DECEL = 45.0
+const SPEED = 200.0
+const ACCEL = 2400.0
+const DECEL = 1000.0
 
 var sigil_layer: TileMapLayer = null
 
@@ -34,13 +35,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 		get_tree().root.add_child(spell)
 
-func _physics_process(_delta: float) -> void:
-	var move_vec := Input.get_vector("p_left", "p_right", "p_up", "p_down") * SPEED
+func _physics_process(delta: float) -> void:
+	var move_vec := Input.get_vector("p_left", "p_right", "p_up", "p_down")
 
 	if move_vec:
-		velocity = move_vec
+		velocity = velocity.move_toward(move_vec * SPEED, ACCEL * delta)
 	else:
-		velocity = velocity.move_toward(Vector2.ZERO, DECEL)
+		velocity = velocity.move_toward(Vector2.ZERO, DECEL * delta)
 
 	move_and_slide()
 

@@ -1,6 +1,7 @@
 extends AnimatedSprite2D
 
 @onready var area: Area2D = $Area2D
+@onready var flame_audio: AudioStreamPlayer2D = $FlameAudio
 
 var on_fire := false
 
@@ -14,13 +15,9 @@ func _ready() -> void:
 	area.area_entered.connect(_area_entered)
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func enflame() -> void:
 	if not on_fire:
 		# Do stuff: play ignition sound
 		on_fire = true
 		animation = "lit"
+		flame_audio.play()

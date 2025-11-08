@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://beppvlffivbr4"]
+[gd_scene load_steps=9 format=3 uid="uid://beppvlffivbr4"]
 
 [ext_resource type="Texture2D" uid="uid://c1vnxeinu0v3u" path="res://asset/environment.png" id="1_icg1l"]
 [ext_resource type="Script" uid="uid://cq81ghyyvy0nf" path="res://scene/torch.gd" id="1_lf4n2"]
 [ext_resource type="Texture2D" uid="uid://du815u4w13fvj" path="res://asset/sigils.png" id="2_36k3j"]
+[ext_resource type="AudioStream" uid="uid://dt1meknx8qt7y" path="res://asset/heat_loop1-105627.mp3" id="4_36k3j"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fskki"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_36k3j"]
 atlas = ExtResource("1_icg1l")
-region = Rect2(0, 0, 64, 64)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_icg1l"]
 atlas = ExtResource("2_36k3j")
@@ -16,7 +17,7 @@ region = Rect2(0, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fskki")
+"texture": SubResource("AtlasTexture_36k3j")
 }],
 "loop": true,
 "name": &"lit",
@@ -44,3 +45,7 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_icg1l")
+
+[node name="FlameAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_36k3j")
+parameters/looping = true
