@@ -17,6 +17,7 @@ signal sigil_collected(sigil: int)
 var spell_scenes: Dictionary[int, PackedScene] = {
 	Spell.FIRE: preload("res://scene/fire_spell.tscn")
 }
+@warning_ignore("unused_signal")
 signal request_cast_spell(spell: int)
 
 func collect_sigil(s: int) -> bool:
