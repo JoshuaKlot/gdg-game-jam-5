@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://crxftxe6fl071"]
+
+[ext_resource type="Texture2D" uid="uid://ckhdyglmat0rl" path="res://sprites/backgroundTemp.png" id="1_0f027"]
+
+[node name="mainScene" type="Node2D"]
+
+[node name="BackgroundTemp" type="Sprite2D" parent="."]
+modulate = Color(0.3741069, 0.23166019, 0, 1)
+position = Vector2(576, 323.5)
+scale = Vector2(18, 10.109375)
+texture = ExtResource("1_0f027")

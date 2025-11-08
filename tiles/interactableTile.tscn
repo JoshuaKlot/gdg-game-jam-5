@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnjheoy5k885"]
+
+[ext_resource type="Texture2D" uid="uid://ckhdyglmat0rl" path="res://sprites/backgroundTemp.png" id="1_lq8uf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbch8"]
+size = Vector2(64, 64)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+modulate = Color(0.8871413, 0.5727502, 0, 1)
+texture = ExtResource("1_lq8uf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_mbch8")
