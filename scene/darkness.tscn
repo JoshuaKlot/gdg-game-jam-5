@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ntsipc6vb83v"]
+
+[ext_resource type="Shader" uid="uid://cdeah5gtjpplo" path="res://scene/rooms/darkness.gdshader" id="1_r3mm5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4pswi"]
+shader = ExtResource("1_r3mm5")
+shader_parameter/size = 100.0
+shader_parameter/pos = Vector2(0, 0)
+shader_parameter/pos2 = Vector2(-1, -1)
+shader_parameter/mode = 0
+
+[node name="Darkness" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4pswi")
+offset_right = 256.0
+offset_bottom = 192.0
+color = Color(0.20784314, 0.20784314, 0.27450982, 1)

@@ -74,3 +74,8 @@ func _physics_process(delta: float) -> void:
 		sigil_glow = lerpf(sigil_glow, 0, delta * 3)
 
 	sigil_layer.self_modulate = Color.WHITE.lerp(Color(2.2, 2.2, 2.2, 1), sigil_glow)
+
+	Darkness.get_node("ColorRect").material["shader_parameter/pos"] = global_position - $Camera2D.get_screen_center_position() + Vector2(256/2, 192/2)
+	if _G.inventory.has(_G.Item.TORCHFROG) and get_children().size() == 4:
+		Darkness.get_node("ColorRect").material["shader_parameter/pos2"] = $TorchFrog.global_position - $Camera2D.get_screen_center_position() + Vector2(256/2, 192/2)
+	Darkness.get_node("ColorRect").material["shader_parameter/size"] = 80 + 10 * sin(2*Time.get_unix_time_from_system())
