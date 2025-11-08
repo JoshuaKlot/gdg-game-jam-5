@@ -6,13 +6,16 @@ extends TextureRect
 
 @onready var label: RichTextLabel = $TextureRect/RichTextLabel
 
+var action_name := ""
+
 func redraw() -> void:
 	assert(spell != -1, "spell must be set before redraw")
 	assert(index != -1, "index must be set before redraw")
 
 	(texture as AtlasTexture).region.position = _G.sigil_atlas_coords[spell] as Vector2
 
-	var actions := InputMap.action_get_events("cast_slot{0}".format([index]))
+	action_name = "cast_slot{0}".format([index])
+	var actions := InputMap.action_get_events(action_name)
 	if !actions:
 		push_warning("no actions found for index {0}".format([index]))
 		return
@@ -21,3 +24,10 @@ func redraw() -> void:
 		if a is InputEventKey:
 			label.text = OS.get_keycode_string(a.physical_keycode)
 			break
+
+func _unhandled_input(event: InputEvent) -> void:
+	if index < 0:
+		return
+
+	if _G.casting && event.is_action_pressed(action_name):
+		_G.request_cast_spell.emit(spell)

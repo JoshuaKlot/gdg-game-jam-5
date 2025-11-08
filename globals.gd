@@ -1,9 +1,14 @@
 extends Node
 
+
+var currentRoom := 0
+var casting := false
+
+
 enum Spell {
 	FIRE,
 }
-var currentRoom=0
+
 const atlas_tile_size := Vector2i(16, 16)
 const atlas_size := Vector2i(4, 4)
 const sigil_atlas_coords: Dictionary[int, Vector2i] = {
