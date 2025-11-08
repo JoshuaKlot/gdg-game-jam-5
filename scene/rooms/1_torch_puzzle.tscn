@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://itlf3q1ll4dv" path="res://asset/world_tileset.tres" id="1_2my6p"]
 [ext_resource type="PackedScene" uid="uid://4q6p7kmpbitc" path="res://scene/doorway.tscn" id="2_3f387"]
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="2_dw83u"]
-[ext_resource type="PackedScene" uid="uid://c3l7uu3p7rl4p" path="res://scene/doorway_exit.tscn" id="3_dw83u"]
+[ext_resource type="PackedScene" path="res://scene/doorway_exit.tscn" id="3_dw83u"]
 
 [node name="TorchPuzzle" type="Node2D"]
 
