@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://bjqm1moabwhbh"]
 
 [ext_resource type="TileSet" uid="uid://itlf3q1ll4dv" path="res://asset/world_tileset.tres" id="1_4lubp"]
-[ext_resource type="PackedScene" uid="uid://beppvlffivbr4" path="res://scene/torch.tscn" id="2_5a6l5"]
+[ext_resource type="PackedScene" uid="uid://beppvlffivbr4" path="res://scene/torchfrog.tscn" id="2_5a6l5"]
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="2_gqe2v"]
 [ext_resource type="PackedScene" uid="uid://dhwyvdf5x2yfu" path="res://scene/doorway.tscn" id="3_gqe2v"]
 [ext_resource type="Script" uid="uid://nbwr5pxdm2jf" path="res://Label_fontmaker.gd" id="3_t4bf8"]
@@ -33,9 +33,6 @@ img = ExtResource("4_rmb0h")
 tile_map_data = PackedByteArray("AAAMAAUAAAACAAIAAAAMAAQAAAACAAIAAAANAAMAAAACAAIAAAANAAIAAAACAAIAAAANAAEAAAACAAIAAAAOAAEAAAACAAIAAAAOAAAAAAACAAIAAAAOAAIAAAACAAIAAAANAAQAAAACAAIAAAANAAUAAAACAAIAAAANAAYAAAACAAIAAAANAAcAAAACAAIAAAANAAgAAAACAAIAAAAOAAkAAAACAAIAAAAOAAgAAAACAAIAAAAOAAcAAAACAAIAAAAOAAYAAAACAAIAAAAOAAUAAAACAAIAAAAOAAQAAAACAAIAAAAOAAMAAAACAAIAAAAPAAAAAAACAAIAAAAQAAAAAAACAAIAAAARAAAAAAACAAIAAAARAAEAAAACAAIAAAAQAAEAAAACAAIAAAAPAAEAAAACAAIAAAAQAAIAAAACAAIAAAAPAAIAAAACAAIAAAARAAIAAAACAAIAAAARAAMAAAACAAIAAAAQAAMAAAACAAIAAAAPAAMAAAACAAIAAAAPAAQAAAACAAIAAAAPAAUAAAACAAIAAAAPAAYAAAACAAIAAAAPAAcAAAACAAIAAAAPAAgAAAACAAIAAAAPAAkAAAACAAIAAAAQAAkAAAACAAIAAAAQAAgAAAACAAIAAAARAAcAAAACAAIAAAAQAAYAAAACAAIAAAAQAAUAAAACAAIAAAAQAAQAAAACAAIAAAARAAQAAAACAAIAAAARAAUAAAACAAIAAAARAAYAAAACAAIAAAARAAgAAAACAAIAAAARAAkAAAACAAIAAAAQAAcAAAACAAIAAAAMAAYAAAACAAIAAAAMAAMAAAACAAIAAAA=")
 tile_set = ExtResource("1_4lubp")
 
-[node name="Torch" parent="." instance=ExtResource("2_5a6l5")]
-position = Vector2(126, 32)
-
 [node name="Spawn" type="Node2D" parent="." groups=["PlayerSpawn"]]
 position = Vector2(32, 80)
 
@@ -46,3 +43,6 @@ load_room = 1
 [node name="DoorwayExitTorchPuzzle" parent="." instance=ExtResource("4_5a6l5")]
 position = Vector2(256, 80)
 spawn_from = 1
+
+[node name="TorchFrog" parent="." instance=ExtResource("2_5a6l5")]
+position = Vector2(168, 40)

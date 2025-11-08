@@ -29,6 +29,10 @@ window/stretch/scale_mode="integer"
 [global_group]
 
 Flammable=""
+PlayerSpawn=""
+SigilLayer=""
+Player=""
+Doorway=""
 
 [input]
 
