@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b68gom3wdvx83"]
+
+[ext_resource type="Script" uid="uid://c02m2ffgkcsit" path="res://scene/player.gd" id="1_xo3ru"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4qnqm"]
+size = Vector2(32, 48)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xo3ru"]
+radius = 16.0
+height = 48.0
+
+[sub_resource type="Gradient" id="Gradient_xo3ru"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0, 0.39215687, 0.49803922)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hjaqi"]
+gradient = SubResource("Gradient_xo3ru")
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_xo3ru")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_4qnqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xo3ru")
+
+[node name="DebugTileInFront" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_hjaqi")
+centered = false
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+shadow_enabled = true
+max_distance = 256.0
