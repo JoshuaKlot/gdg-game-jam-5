@@ -2,23 +2,26 @@ extends Area2D
 
 
 @export var thrown := false
-@export var lifetime: float = 0.4
-@export var max_scale: float = 5
+@export var lifetime: float = 0.5
+@export var max_scale: Vector2 = Vector2.ONE * 1.5
 
-@onready var collision: CollisionShape2D = $CollisionShape2D
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+var tween: Tween
 
-var alive_for: float = 0
-
-func _physics_process(delta: float) -> void:
-	var ratio := alive_for / lifetime
+func _ready() -> void:
 	if thrown:
 		pass
 	else:
-		scale = Vector2.ONE * (max_scale * ratio)
-		sprite.self_modulate.a = 1 - ratio
+		tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+		tween.stop()
+		tween.tween_property(self, "scale", max_scale, lifetime)
+		tween.tween_property(self, "modulate:a", 0, lifetime + 0.1)
 
-	alive_for += delta
-	if alive_for >= lifetime:
-		#queue_free()
-		pass
+	tween.play()
+
+	print(Time.get_ticks_msec())
+
+func _physics_process(_delta: float) -> void:
+	if tween.is_running():
+		return
+	queue_free()
+	print(Time.get_ticks_msec())

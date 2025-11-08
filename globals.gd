@@ -14,7 +14,7 @@ const sigil_atlas_coords: Dictionary[int, Vector2i] = {
 var collected_sigils: Array[int] = []
 signal sigil_collected(sigil: int)
 
-var spell_scenes: Dictionary[int, PackedScene] = {
+const spell_scenes: Dictionary[int, PackedScene] = {
 	Spell.FIRE: preload("res://scene/fire_spell.tscn")
 }
 @warning_ignore("unused_signal")
