@@ -5,9 +5,10 @@ const SPEED = 200.0
 const ACCEL = 2400.0
 const DECEL = 1000.0
 
-var sigil_layer: TileMapLayer = null
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-@onready var debug_infront_tile := $DebugTileInFront
+var sigil_layer: TileMapLayer = null
+var sigil_glow: float = 0.0
 
 func to_tile_pos(v: Vector2) -> Vector2i:
 	if sigil_layer == null:
@@ -16,25 +17,30 @@ func to_tile_pos(v: Vector2) -> Vector2i:
 
 	return sigil_layer.local_to_map(sigil_layer.to_local(v))
 
-func near_sigil(v: Vector2i) -> bool:
+func nearest_sigil(v: Vector2i) -> int:
 	const NO_EXIST = Vector2i(-1, -1)
 
-	return sigil_layer.get_cell_atlas_coords(v + Vector2i.UP) != NO_EXIST || \
-		sigil_layer.get_cell_atlas_coords(v + Vector2i.RIGHT) != NO_EXIST || \
-		sigil_layer.get_cell_atlas_coords(v + Vector2i.DOWN) != NO_EXIST || \
-		sigil_layer.get_cell_atlas_coords(v + Vector2i.LEFT) != NO_EXIST
+	var coords := sigil_layer.get_cell_atlas_coords(v + Vector2i.UP)
+	if coords == NO_EXIST:
+		coords = sigil_layer.get_cell_atlas_coords(v + Vector2i.RIGHT)
+		if coords == NO_EXIST:
+			coords = sigil_layer.get_cell_atlas_coords(v + Vector2i.DOWN)
+			if coords == NO_EXIST:
+				sigil_layer.get_cell_atlas_coords(v + Vector2i.LEFT)
+				if coords == NO_EXIST:
+					return -1
+
+	return _G.coords_to_sigil(coords)
 
 
 func _ready() -> void:
 	sigil_layer = get_tree().get_first_node_in_group("SigilLayer")
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("p_cast"):
-		var spell = _G.spell_scenes.get(_G.Spell.FIRE).instantiate()
-		spell.global_position = position
-		spell.lifetime = 0.1
-
-		get_tree().root.add_child(spell)
+	if event.is_action_pressed("p_collect"):
+		var sigil := nearest_sigil(to_tile_pos(position))
+		if sigil >= 0:
+			_G.collect_sigil(sigil)
 
 func _physics_process(delta: float) -> void:
 	var move_vec := Input.get_vector("p_left", "p_right", "p_up", "p_down")
@@ -44,15 +50,21 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, DECEL * delta)
 
+	if velocity:
+		if velocity.abs().max_axis_index() == Vector2.AXIS_X:
+			sprite.play("side")
+			sprite.flip_h = velocity.x >= 0
+		else:
+			sprite.play("front" if velocity.y >= 0 else "back")
+	else:
+		sprite.stop()
+
 	move_and_slide()
 
 	var player_tile := to_tile_pos(position)
-	debug_infront_tile.global_position = player_tile * sigil_layer.tile_set.tile_size
-
-	const SIGIL_GLOW := Color(2, 2, 2, 1)
-	if near_sigil(player_tile):
-		debug_infront_tile.self_modulate = Color.GREEN
-		sigil_layer.self_modulate = SIGIL_GLOW
+	if nearest_sigil(player_tile) >= 0:
+		sigil_glow = lerpf(sigil_glow, 1, delta * 2)
 	else:
-		debug_infront_tile.self_modulate = Color.WHITE
-		sigil_layer.self_modulate = Color.WHITE
+		sigil_glow = lerpf(sigil_glow, 0, delta * 3)
+
+	sigil_layer.self_modulate = Color.WHITE.lerp(Color(2.2, 2.2, 2.2, 1), sigil_glow)

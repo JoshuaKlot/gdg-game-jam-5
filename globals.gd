@@ -3,10 +3,37 @@ extends Node
 enum Spell {
 	FIRE,
 }
-const sigil_atlas_coords: Dictionary[int, Vector2] = {
-	Spell.FIRE: Vector2i(0, 0),
+
+const atlas_tile_size := Vector2i(16, 16)
+const atlas_size := Vector2i(4, 4)
+
+const sigil_atlas_coords: Dictionary[int, Vector2i] = {
+	Spell.FIRE: atlas_tile_size * Vector2i(0, 0),
 }
-var collected_sigils: Dictionary[int, bool] = {}
+
+var collected_sigils: Array[int] = []
+signal sigil_collected(sigil: int)
+
 var spell_scenes: Dictionary[int, PackedScene] = {
 	Spell.FIRE: preload("res://scene/fire_spell.tscn")
 }
+
+func collect_sigil(s: int) -> bool:
+	if s in collected_sigils:
+		return false
+
+	collected_sigils.append(s)
+	sigil_collected.emit(s)
+	return true
+
+func coords_to_sigil(v: Vector2i) -> int:
+	var sigil := v.y * atlas_size.x + v.x
+	if sigil < 0 || sigil > atlas_size.x * atlas_size.y:
+		push_error("tried to access coords {0} outside of atlas {1}".format([v, atlas_size]))
+		return -1
+
+	if sigil >= sigil_atlas_coords.size():
+		push_error("tried to access sigil {0} outside of size {1}".format([sigil, sigil_atlas_coords.size()]))
+		return -1
+
+	return sigil
