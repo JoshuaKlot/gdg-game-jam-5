@@ -25,6 +25,7 @@ func room_changed() -> void:
 
 func _ready() -> void:
 	if _G.inventory.has(_G.Item.TORCHFROG):
+		cave_in()
 		queue_free()
 		return
 
@@ -65,3 +66,13 @@ func enflame() -> void:
 		(texture as AtlasTexture).region.position = Vector2(16, 0)
 		top_level = true # Don't inherit player position
 		call_deferred("reparent", player)
+		
+		player.camera_shaking = true
+		get_tree().create_timer(2).timeout.connect(cave_in)
+		get_tree().create_timer(4).timeout.connect(func(): player.camera_shaking = false)
+
+func cave_in() -> void:
+	var t = get_tree().current_scene.get_node("Entrance/WorldLayer")
+	for i in 2:
+		for j in 4:
+			t.set_cell(Vector2i(4 + i, 3 + j), 0, Vector2i(0 + i, 2 + j % 2))

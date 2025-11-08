@@ -10,6 +10,8 @@ const DECEL = 1000.0
 var sigil_layer: TileMapLayer = null
 var sigil_glow: float = 0.0
 
+var camera_shaking: bool = false
+
 func to_tile_pos(v: Vector2) -> Vector2i:
 	if sigil_layer == null:
 		push_warning("Tried to use to_tile_pos when sigil_layer null")
@@ -53,7 +55,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_G.collect_sigil(sigil)
 
 func _physics_process(delta: float) -> void:
-	var move_vec := Input.get_vector("p_left", "p_right", "p_up", "p_down")
+	var move_vec := Vector2.ZERO if camera_shaking else Input.get_vector("p_left", "p_right", "p_up", "p_down")
 
 	if move_vec:
 		velocity = velocity.move_toward(move_vec * SPEED, ACCEL * delta)
@@ -83,3 +85,6 @@ func _physics_process(delta: float) -> void:
 	if _G.inventory.has(_G.Item.TORCHFROG) and get_children().size() == 4:
 		Darkness.get_node("ColorRect").material["shader_parameter/pos2"] = $TorchFrog.global_position - $Camera2D.get_screen_center_position() + Vector2(256/2, 192/2)
 	Darkness.get_node("ColorRect").material["shader_parameter/size"] = 80 + 10 * sin(2*Time.get_unix_time_from_system())
+	
+	if camera_shaking: $Camera2D.offset = 2*Vector2(randf()*2-1, randf()*2-1)
+	else: $Camera2D.offset = Vector2.ZERO
