@@ -102,6 +102,7 @@ var torch_ids: Dictionary[Vector2, int] = {}
 @warning_ignore("unused_signal")
 signal torch_puzzle_changed
 var torch_puzzle_solved := false
+var lizard_wizard_solved := false
 
 func torch_puzzle_all_lit() -> bool:
 	var count := 0

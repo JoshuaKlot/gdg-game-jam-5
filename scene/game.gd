@@ -9,7 +9,7 @@ const PLAYER := preload("res://scene/player.tscn")
 @onready var player: CharacterBody2D = null
 
 var cur_room_int := 0
-var old_room_int 
+var old_room_int
 var is_transitioning := false
 var transition_conflict := false
 
@@ -19,10 +19,10 @@ func change_room(room: int) -> void:
 		if old_room_int != room: return
 		transition_conflict = true
 		while transition_conflict: await get_tree().process_frame
-	
+
 	old_room = cur_room
 	old_room_int = cur_room_int
-	
+
 	cur_room_int = room
 	is_transitioning = true
 	var room_scene: PackedScene = _G.room_to_scene.get(room)
