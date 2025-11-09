@@ -43,7 +43,6 @@ animations = [{
 radius = 8.0
 
 [node name="FireSpell" type="Area2D" groups=["Flaming", "Throwable"]]
-monitoring = false
 script = ExtResource("1_rvosn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

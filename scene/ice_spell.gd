@@ -39,7 +39,13 @@ func die() -> void:
 	await sprite.animation_finished
 	queue_free()
 
+func _area_entered(a: Area2D) -> void:
+	if a.is_in_group("BlockSpell"):
+		tween.stop()
+		queue_free()
+
 func _ready() -> void:
+	area_entered.connect(_area_entered)
 	world_layer = get_tree().get_first_node_in_group("WorldLayer")
 	if world_layer == null:
 		push_warning("no node in WorldLayer group")
