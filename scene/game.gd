@@ -4,21 +4,31 @@ extends Node2D
 const PLAYER := preload("res://scene/player.tscn")
 
 @onready var cur_room: Node2D = null
+@onready var old_room: Node2D = null
 @onready var cur_room_source: PackedScene = null
 @onready var player: CharacterBody2D = null
 
 var cur_room_int := 0
+var old_room_int
 var is_transitioning := false
+var transition_conflict := false
 
 func change_room(room: int) -> void:
+	if is_transitioning:
+		print(old_room_int, room, cur_room_int)
+		if old_room_int != room: return
+		transition_conflict = true
+		while transition_conflict: await get_tree().process_frame
+
+	old_room = cur_room
+	old_room_int = cur_room_int
+
 	cur_room_int = room
 	is_transitioning = true
 	var room_scene: PackedScene = _G.room_to_scene.get(room)
 	if room_scene == null:
 		push_error("room {0} has no scene mapped to it".format([room]))
 		return
-
-	var old_room = cur_room
 
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 
@@ -29,6 +39,8 @@ func change_room(room: int) -> void:
 	for i in 9: Darkness.get_node("ColorRect").material["shader_parameter/lights_on"][1 + i] = 0
 
 	if old_room: old_room.queue_free()
+
+	await get_tree().process_frame
 
 	cur_room = room_scene.instantiate()
 	add_child(cur_room)
@@ -41,6 +53,10 @@ func change_room(room: int) -> void:
 			spawn_at = e
 			break
 
+	if spawn_at == null:
+		push_error("no contiguous DoorwayExit nor PlayerSpawn found, using first DoorwayExit (room {0} -> {1})".format([old_room_int, cur_room_int]))
+		spawn_at = get_tree().get_first_node_in_group("DoorwayExit")
+
 	player.position = spawn_at.position
 
 	cur_room_source = room_scene
@@ -51,6 +67,10 @@ func change_room(room: int) -> void:
 	Darkness.get_node("ColorRect").material["shader_parameter/size"] = 0
 	for i in 40:
 		Darkness.get_node("ColorRect").material["shader_parameter/size"] = i / 40. * (80 + 5 * sin(2*Time.get_unix_time_from_system()))
+		if transition_conflict:
+			transition_conflict = false
+			is_transitioning = false
+			return
 		await get_tree().process_frame
 
 	is_transitioning = false
@@ -64,7 +84,7 @@ func cast_spell(spell: int) -> void:
 	# No regrets
 	_G.can_cast = false
 	_G.can_cast_changed.emit(false)
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(0.8).timeout
 	_G.can_cast = true
 	_G.can_cast_changed.emit(true)
 
