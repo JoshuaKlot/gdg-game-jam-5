@@ -24,14 +24,14 @@ tile_set = ExtResource("3_31ogd")
 [node name="Label" type="Label" parent="."]
 offset_left = 123.0
 offset_top = 13.0
-offset_right = 232.0
-offset_bottom = 128.0
+offset_right = 219.875
+offset_bottom = 113.0
 theme_override_fonts/font = ExtResource("4_nyx3p")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 24
 text = "Lost 
 In Incantaion
 
-Press
+
 
 
 
@@ -43,6 +43,7 @@ vertical_alignment = 1
 autowrap_trim_flags = 128
 script = ExtResource("5_q7y7j")
 img = ExtResource("6_do5dw")
+height = 24
 
 [node name="DarknessLayer" type="TileMapLayer" parent="."]
 visible = false
@@ -59,9 +60,7 @@ wait_time = 1.508
 one_shot = true
 autostart = true
 
-[node name="Torch" parent="." groups=["Player"] instance=ExtResource("7_y2k2l")]
+[node name="Torch" parent="." instance=ExtResource("7_y2k2l")]
 position = Vector2(176, 64)
-
-[node name="Camera2D" type="Camera2D" parent="Torch"]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
