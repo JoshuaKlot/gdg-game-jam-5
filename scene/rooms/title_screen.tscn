@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dwa0ji4d4lml6"]
+[gd_scene load_steps=10 format=4 uid="uid://d32lvn17pwvrm"]
 
 [ext_resource type="Script" uid="uid://c35lwx71mpjq6" path="res://scene/rooms/title_screen.gd" id="1_srs6y"]
 [ext_resource type="TileSet" uid="uid://itlf3q1ll4dv" path="res://asset/world_tileset.tres" id="2_tk3pc"]
@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://cmq0wuw6hkn7e" path="res://font_8.tres" id="4_r5pxi"]
 [ext_resource type="Script" uid="uid://nbwr5pxdm2jf" path="res://Label_fontmaker.gd" id="5_q7y7j"]
 [ext_resource type="Image" uid="uid://giduoh6jvbgx" path="res://font-serif.png" id="6_do5dw"]
-[ext_resource type="PackedScene" path="res://scene/titletorch.tscn" id="7_y2k2l"]
+[ext_resource type="PackedScene" uid="uid://cvvi0pwfkcxxv" path="res://scene/titletorch.tscn" id="7_y2k2l"]
 [ext_resource type="Texture2D" uid="uid://dixmd0u21tn8e" path="res://asset/title.png" id="8_e4gv1"]
 [ext_resource type="Script" uid="uid://bjb0n7n7xk58k" path="res://scene/rooms/title.gd" id="9_yu6d0"]
 
