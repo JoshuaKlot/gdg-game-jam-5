@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dhwyvdf5x2yfu" path="res://scene/doorway.tscn" id="2_3f387"]
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="2_dw83u"]
 [ext_resource type="FontFile" uid="uid://cmq0wuw6hkn7e" path="res://font_8.tres" id="3_0gr7d"]
-[ext_resource type="PackedScene" uid="uid://c3l7uu3p7rl4p" path="res://scene/doorway_exit.tscn" id="3_dw83u"]
+[ext_resource type="PackedScene" path="res://scene/doorway_exit.tscn" id="3_dw83u"]
 [ext_resource type="PackedScene" uid="uid://b7jruw4rp7iu1" path="res://scene/torch.tscn" id="3_xhdbw"]
 [ext_resource type="Script" uid="uid://nbwr5pxdm2jf" path="res://Label_fontmaker.gd" id="4_xhdbw"]
 [ext_resource type="Image" uid="uid://giduoh6jvbgx" path="res://font-serif.png" id="5_kd7lg"]
@@ -18,7 +18,6 @@ tile_map_data = PackedByteArray("AAAFAAAAAAADAAAAAAAGAAAAAAACAAAAAAAHAAAAAAADAAA
 tile_set = ExtResource("1_2my6p")
 
 [node name="SigilLayer" type="TileMapLayer" parent="." groups=["SigilLayer"]]
-tile_map_data = PackedByteArray("AAAGAAEAAQABAAAAAAA=")
 tile_set = ExtResource("2_dw83u")
 
 [node name="BlockUntilAllLitLayer" type="TileMapLayer" parent="."]

@@ -20,6 +20,7 @@ tile_set = ExtResource("1_qnq52")
 
 [node name="SigilLayer" type="TileMapLayer" parent="." groups=["SigilLayer"]]
 rotation = -0.0068274457
+tile_map_data = PackedByteArray("AAAEAP7/AQABAAAAAAA=")
 tile_set = ExtResource("2_dckn5")
 
 [node name="DoorwayExitTorchPuzzle" parent="." instance=ExtResource("3_dckn5")]

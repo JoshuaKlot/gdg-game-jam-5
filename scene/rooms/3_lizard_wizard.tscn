@@ -22,6 +22,7 @@ tile_map_data = PackedByteArray("AAAFAAAAAAADAAAAAAAGAAAAAAACAAAAAAAHAAAAAAADAAA
 tile_set = ExtResource("1_ko32d")
 
 [node name="SigilLayer" type="TileMapLayer" parent="." groups=["SigilLayer"]]
+tile_map_data = PackedByteArray("AAAWAAEAAQAAAAMAAAA=")
 tile_set = ExtResource("2_cv4bx")
 
 [node name="BlockUntilSolved" type="TileMapLayer" parent="."]
