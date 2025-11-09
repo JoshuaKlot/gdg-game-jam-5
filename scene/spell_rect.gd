@@ -1,6 +1,14 @@
 extends TextureRect
 
 
+const SHIFT_MAP: Dictionary[String, String] = {
+	"C": "c",
+	"1": "!",
+	"2": "@",
+	"3": "#",
+	"4": "$",
+}
+
 @export var spell: int = -1 # Use _G.Spell when setting this
 @export var index: int = -1 # The index of the spell when presented in the cast UI
 @export var is_throw_mod := false
@@ -17,7 +25,7 @@ func _ready() -> void:
 
 func redraw() -> void:
 	if is_throw_mod:
-		label.text = OS.get_keycode_string(InputMap.action_get_events("throw_toggle")[0].physical_keycode)
+		label.text = SHIFT_MAP[OS.get_keycode_string(InputMap.action_get_events("throw_toggle")[0].physical_keycode)]
 		return
 
 	assert(spell != -1, "spell must be set before redraw")
@@ -33,7 +41,7 @@ func redraw() -> void:
 
 	for a in actions:
 		if a is InputEventKey:
-			label.text = OS.get_keycode_string(a.physical_keycode)
+			label.text = SHIFT_MAP[OS.get_keycode_string(a.physical_keycode)]
 			break
 
 func _unhandled_input(event: InputEvent) -> void:
