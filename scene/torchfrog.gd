@@ -67,6 +67,7 @@ func enflame() -> void:
 		(texture as AtlasTexture).region.position = Vector2(16, 0)
 		top_level = true # Don't inherit player position
 		call_deferred("reparent", player)
+		Darkness.get_node("ColorRect").material["shader_parameter/lights_on"][0] = 1
 
 		player.camera_shaking = true
 		get_tree().create_timer(2).timeout.connect(cave_in)
