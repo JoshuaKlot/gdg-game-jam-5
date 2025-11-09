@@ -229,6 +229,8 @@ texture = ExtResource("1_wgmhf")
 5:10/0 = 0
 9:9/0 = 0
 10:9/0 = 0
+9:10/0 = 0
+10:10/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 2
