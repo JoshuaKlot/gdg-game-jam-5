@@ -1,5 +1,7 @@
 extends AnimatedSprite2D
 
+@export var start_lit := false
+
 var on_fire := false:
 	set(x):
 		on_fire = x
@@ -8,7 +10,7 @@ var on_fire := false:
 @onready var player = get_tree().get_first_node_in_group("Player")
 
 func _ready() -> void:
-	if _G.torch_puzzle_lit.get_or_add(position, id == 1):
+	if _G.torch_puzzle_lit.get_or_add(position, start_lit):
 		call_deferred("enflame", false)
 	z_index = floori(global_position.y)
 
