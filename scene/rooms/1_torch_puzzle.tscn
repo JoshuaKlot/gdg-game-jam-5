@@ -46,6 +46,9 @@ text = "G31F 1+31i5"
 script = ExtResource("4_xhdbw")
 img = ExtResource("5_kd7lg")
 
+[node name="DoorwayExitEntrance2" parent="." instance=ExtResource("3_dw83u")]
+position = Vector2(305, 244)
+
 [node name="DoorwayExitEntrance" parent="." instance=ExtResource("3_dw83u")]
 position = Vector2(40, 80)
 
