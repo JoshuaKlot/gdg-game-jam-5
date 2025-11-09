@@ -46,10 +46,14 @@ text = "G31F 1+31i5"
 script = ExtResource("4_xhdbw")
 img = ExtResource("5_kd7lg")
 
+[node name="DoorwayExitRockPuzzle" parent="." instance=ExtResource("3_dw83u")]
+position = Vector2(307, 245)
+spawn_from = 2
+
 [node name="DoorwayExitEntrance" parent="." instance=ExtResource("3_dw83u")]
 position = Vector2(40, 80)
 
-[node name="DoorwayEntrance3" parent="." instance=ExtResource("2_3f387")]
+[node name="DoorwayEntranceRockPuzzle" parent="." instance=ExtResource("2_3f387")]
 position = Vector2(307, 269)
 load_room = 2
 

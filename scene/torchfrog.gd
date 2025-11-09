@@ -68,7 +68,6 @@ func enflame() -> void:
 		top_level = true # Don't inherit player position
 		call_deferred("reparent", player)
 		Darkness.get_node("ColorRect").material["shader_parameter/lights_on"][0] = 1
-
 		player.camera_shaking = true
 		get_tree().create_timer(1).timeout.connect(cave_in)
 		get_tree().create_timer(1.5).timeout.connect(func(): player.camera_shaking = false)
