@@ -56,7 +56,7 @@ func detector_entered(a: Area2D):
 		extend_tween.play()
 		extending = true
 		extend_count += 1
-	elif a.is_in_group("Windy") && !wind_spin_tween.is_running():
+	elif !steppable && a.is_in_group("Windy") && !wind_spin_tween.is_running():
 		wind_spin_tween.play()
 
 # Only steppable lizards connect this
@@ -78,6 +78,11 @@ func _ready() -> void:
 		detector.body_entered.connect(body_entered)
 
 	detector.area_entered.connect(detector_entered)
+
+func _exit_tree() -> void:
+	if extending:
+		extend_count -= 1
+		extending = false
 
 func _process(_delta: float) -> void:
 	if extend_tween.is_running():
