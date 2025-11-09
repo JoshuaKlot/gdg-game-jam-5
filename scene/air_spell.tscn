@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3rtfgxxgatqd"]
+[gd_scene load_steps=11 format=3 uid="uid://c3rtfgxxgatqd"]
 
 [ext_resource type="Script" uid="uid://caapvhjrjk7f" path="res://scene/air_spell.gd" id="1_ih06a"]
 [ext_resource type="Texture2D" uid="uid://cyyw40cewoj6" path="res://asset/wind.png" id="2_0svhn"]
+[ext_resource type="AudioStream" uid="uid://bei3w2las0hhl" path="res://audio/thrownwindspell.mp3" id="3_0svhn"]
+[ext_resource type="AudioStream" uid="uid://bji4wsekklrng" path="res://audio/windspell.mp3" id="4_eb0qo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_acaad"]
 atlas = ExtResource("2_0svhn")
@@ -53,3 +55,9 @@ frame_progress = 0.44088796
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lofvj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0svhn")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_eb0qo")

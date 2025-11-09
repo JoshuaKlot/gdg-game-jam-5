@@ -17,12 +17,14 @@ func _ready() -> void:
 	thrown=_G.throwing
 	_G.throwing=false
 	if thrown:
+		$AudioStreamPlayer.play()
 		tween=create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 		tween.stop()
 		tween.tween_property(self,"position",position+(distance*_G.throwingDirection),lifetime)
 		tween.tween_property(self, "scale", max_scale, lifetime)
 		tween.tween_property(self, "modulate:a", 0, lifetime + 0.1)
 	else:
+		$AudioStreamPlayer2.play()
 		tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 		tween.stop()
 		tween.tween_property(self, "scale", max_scale, lifetime)
