@@ -56,6 +56,7 @@ func detector_entered(a: Area2D):
 	if a.is_in_group("LizardTongue") && a != tongue && !extending:
 		extend_tween.play()
 		extending = true
+		$AudioStreamPlayer.play()
 		extend_count += 1
 	elif spinnable && !extending && !steppable && a.is_in_group("Windy") && !wind_spin_tween.is_running():
 		wind_spin_tween.play()
@@ -67,6 +68,7 @@ func body_entered(b: Node2D) -> void:
 
 	extend_tween.play()
 	extending = true
+	$AudioStreamPlayer.play()
 	extend_count += 1
 
 func _ready() -> void:
