@@ -6,9 +6,12 @@ const PLAYER := preload("res://scene/player.tscn")
 @onready var cur_room: Node2D = null
 @onready var cur_room_source: PackedScene = null
 @onready var player: CharacterBody2D = null
+
+var cur_room_int := 0
 var is_transitioning := false
 
 func change_room(room: int) -> void:
+	cur_room_int = room
 	is_transitioning = true
 	var room_scene: PackedScene = _G.room_to_scene.get(room)
 	if room_scene == null:
@@ -18,7 +21,7 @@ func change_room(room: int) -> void:
 	var old_room = cur_room
 
 	player.process_mode = Node.PROCESS_MODE_DISABLED
-	
+
 	var s = Darkness.get_node("ColorRect").material["shader_parameter/size"]
 	for i in 40:
 		Darkness.get_node("ColorRect").material["shader_parameter/size"] = (39-i) / 40. * s
@@ -26,10 +29,10 @@ func change_room(room: int) -> void:
 	for i in 9: Darkness.get_node("ColorRect").material["shader_parameter/lights_on"][1 + i] = 0
 
 	if old_room: old_room.queue_free()
-	
+
 	cur_room = room_scene.instantiate()
 	add_child(cur_room)
-	
+
 	await get_tree().process_frame
 
 	var spawn_at: Node2D = get_tree().get_first_node_in_group("PlayerSpawn")
@@ -41,15 +44,15 @@ func change_room(room: int) -> void:
 	player.position = spawn_at.position
 
 	cur_room_source = room_scene
-	
+
 	_G.room_changed.emit(room)
 	player.set_deferred("process_mode", PROCESS_MODE_INHERIT)
-	
+
 	Darkness.get_node("ColorRect").material["shader_parameter/size"] = 0
 	for i in 40:
 		Darkness.get_node("ColorRect").material["shader_parameter/size"] = i / 40. * (80 + 5 * sin(2*Time.get_unix_time_from_system()))
 		await get_tree().process_frame
-	
+
 	is_transitioning = false
 
 func cast_spell(spell: int) -> void:
@@ -81,3 +84,39 @@ func _ready() -> void:
 		await get_tree().process_frame
 
 	player.position = spawn.position
+
+func _unhandled_input(event: InputEvent) -> void:
+	if !OS.has_feature("editor"):
+		return
+
+	if event.is_action_pressed("debug_prev_room") && !is_transitioning:
+		var frog := get_tree().get_first_node_in_group("TorchFrog")
+		if frog:
+			frog.call("enflame")
+
+		cur_room_int -= 1
+		if cur_room_int < 0:
+			cur_room_int = _G.Room.size() - 1
+
+		print("DEBUG: goto prev room ", cur_room_int)
+		change_room(cur_room_int)
+	elif event.is_action_pressed("debug_next_room") && !is_transitioning:
+		var frog := get_tree().get_first_node_in_group("TorchFrog")
+		if frog:
+			frog.call("enflame")
+
+		cur_room_int += 1
+		if cur_room_int >= _G.Room.size():
+			cur_room_int = 0
+
+		print("DEBUG: goto next room ", cur_room_int)
+		change_room(cur_room_int)
+	elif event.is_action_pressed("debug_collect_next_sigil"):
+		var next_sigil := _G.collected_sigils.size()
+		if next_sigil == _G.Spell.size():
+			print("DEBUG: already have all sigils")
+			return
+
+		_G.collected_sigils.append(next_sigil)
+		_G.sigil_collected.emit(next_sigil)
+		print("DEBUG: force collect sigil ", next_sigil)

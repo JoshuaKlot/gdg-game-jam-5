@@ -43,7 +43,6 @@ animations = [{
 radius = 8.0
 
 [node name="WindSpell" type="Area2D" groups=["Throwable", "Windy"]]
-monitoring = false
 script = ExtResource("1_ih06a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

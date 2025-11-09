@@ -1,7 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://da1sxrmttrbqa"]
+[gd_scene load_steps=13 format=3 uid="uid://da1sxrmttrbqa"]
 
 [ext_resource type="Script" uid="uid://b7mc6nxo401u8" path="res://scene/rock.gd" id="1_o08jy"]
 [ext_resource type="Texture2D" uid="uid://bj4uyyf7ogjpa" path="res://asset/rock.png" id="2_t7a0u"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o08jy"]
+friction = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_76jnh"]
 atlas = ExtResource("2_t7a0u")
@@ -59,12 +62,17 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6c7l"]
-size = Vector2(20, 21)
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o08jy"]
-size = Vector2(16, 15)
+size = Vector2(16, 16)
 
-[node name="rock" type="Area2D"]
+[node name="rock" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_o08jy")
+gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("1_o08jy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -73,21 +81,14 @@ autoplay = "default"
 frame_progress = 0.29224545
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_m6c7l")
 
-[node name="Area2D" type="StaticBody2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_o08jy")
 debug_color = Color(0.99822754, 0.03747482, 3.85046e-07, 0.41960785)
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 16)
-collision_mask = 3
-collide_with_areas = true
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

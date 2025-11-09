@@ -7,7 +7,13 @@ extends Area2D
 @export var distance:float =100
 var tween: Tween
 
+func _area_entered(a: Area2D) -> void:
+	if a.is_in_group("BlockSpell"):
+		tween.stop()
+		queue_free()
+
 func _ready() -> void:
+	area_entered.connect(_area_entered)
 	thrown=_G.throwing
 	_G.throwing=false
 	if thrown:
@@ -23,8 +29,4 @@ func _ready() -> void:
 		tween.tween_property(self, "modulate:a", 0, lifetime + 0.1)
 
 	tween.play()
-
-func _physics_process(_delta: float) -> void:
-	if tween.is_running():
-		return
-	queue_free()
+	tween.tween_callback(queue_free)

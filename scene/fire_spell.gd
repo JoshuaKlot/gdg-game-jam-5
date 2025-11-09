@@ -8,7 +8,13 @@ extends Area2D
 
 var tween: Tween
 
+func _area_entered(a: Area2D) -> void:
+	if a.is_in_group("BlockSpell"):
+		tween.stop()
+		queue_free()
+
 func _ready() -> void:
+	area_entered.connect(_area_entered)
 	thrown=_G.throwing
 	_G.throwing=false
 	if thrown:
