@@ -78,7 +78,7 @@ var camera_constraints:Dictionary[int,Array]={
 	Room.ENTRANCE: [64,-16,288,160],
 	Room.TORCH_PUZ: [0,0,416,288],
 	Room.ROCK_PUZ:[0,-48,272,208],
-	Room.LIZ_WIZ:[0,0,416,288],
+	Room.LIZ_WIZ:[0,0,416,368],
 	Room.TORCH_HINT: [0,0,416,288],
 }
 
