@@ -12,8 +12,6 @@ func _ready() -> void:
 		call_deferred("enflame")
 	z_index = floori(global_position.y)
 
-
-
 func enflame() -> void:
 	if not on_fire:
 		_G.torch_puzzle_lit.set(position, true)

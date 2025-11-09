@@ -99,14 +99,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		sigil_glow = lerpf(sigil_glow, 0, delta * 3)
 
-	sigil_layer.self_modulate = Color.WHITE.lerp(Color(2.2, 2.2, 2.2, 1), sigil_glow)
+	if sigil_layer: sigil_layer.self_modulate = Color.WHITE.lerp(Color(2.2, 2.2, 2.2, 1), sigil_glow)
 
 	@warning_ignore("integer_division")
 	Darkness.get_node("ColorRect").material["shader_parameter/pos"] = global_position - $Camera2D.get_screen_center_position() + Vector2(256/2, 192/2)
 	if _G.inventory.has(_G.Item.TORCHFROG) and get_children().size() >= 4:
 		@warning_ignore("integer_division")
 		Darkness.get_node("ColorRect").material["shader_parameter/lights"][0] = get_tree().get_first_node_in_group("TorchFrog").global_position - $Camera2D.get_screen_center_position() + Vector2(256/2, 192/2)
-	Darkness.get_node("ColorRect").material["shader_parameter/size"] = 80 + 5 * sin(2*Time.get_unix_time_from_system())
+	if not get_tree().current_scene.is_transitioning: Darkness.get_node("ColorRect").material["shader_parameter/size"] = 80 + 5 * sin(2*Time.get_unix_time_from_system())
 
 	if camera_shaking: $Camera2D.offset = 2*Vector2(randf()*2-1, randf()*2-1)
 	else: $Camera2D.offset = Vector2.ZERO
