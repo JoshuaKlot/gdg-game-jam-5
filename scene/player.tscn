@@ -114,6 +114,7 @@ height = 15.0
 z_index = 1
 y_sort_enabled = true
 collision_mask = 2
+motion_mode = 1
 floor_stop_on_slope = false
 floor_block_on_wall = false
 platform_on_leave = 2
