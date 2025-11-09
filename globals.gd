@@ -102,6 +102,7 @@ var torch_ids: Dictionary[Vector2, int] = {}
 @warning_ignore("unused_signal")
 signal torch_puzzle_changed
 var torch_puzzle_solved := false
+var torch_puzzle2_solved := false
 var lizard_wizard_solved := false
 
 func torch_puzzle_all_lit() -> bool:
@@ -111,6 +112,20 @@ func torch_puzzle_all_lit() -> bool:
 		if !torch_puzzle_lit[torch_pos]:
 			return false
 	return count > 0
+
+func torch_puzzle2_correct() -> bool:
+	print(torch_puzzle_lit)
+	if torch_puzzle_lit.size() != 5: return false
+	
+	var correct = [false, false, true, true, false]
+	torch_puzzle_lit.sort()
+	var k = torch_puzzle_lit.keys()
+	#k.sort()
+	print(k)
+	for i in 5:
+		if torch_puzzle_lit[k[i]] != correct[i]:
+			return false
+	return true
 
 func play_sound(stream: AudioStream, parent: Node = null, pitch = 1.0):
 	var a = AudioStreamPlayer.new()
