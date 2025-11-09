@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 @export var tile_size=16
-@export var speed: float = 10
+@export var speed: float = 20
 var direction=Vector2.DOWN
 var movingTowards
 var moving=false
@@ -13,9 +13,11 @@ func move(distance,moveTo):
 	
 func _physics_process(delta: float) -> void:
 	if moving:
-		linear_velocity=linear_velocity.move_toward(movingTowards,speed)
+		linear_velocity=direction*speed
+		
 		$AnimatedSprite2D.play("moving")
-		if position.is_equal_approx(movingTowards) or linear_velocity==Vector2.ZERO:
+		print(position.distance_to(movingTowards))
+		if position.distance_to(movingTowards) <= 0.1 or linear_velocity==Vector2.ZERO:
 			moving=false
 	else:
 		linear_velocity=Vector2.ZERO
