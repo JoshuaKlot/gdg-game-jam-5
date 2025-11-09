@@ -13,6 +13,7 @@ func crown_entered(a: Area2D) -> void:
 		crown.reparent(king_lizard.find_child("Tongue"))
 		await get_tree().create_timer(king_lizard.retract_tween_duration * 1.2).timeout
 		player.camera_shaking = true
+		$AudioStreamPlayer.play()
 		get_tree().create_timer(1).timeout.connect(func(): block_layer.enabled = false)
 		get_tree().create_timer(1.5).timeout.connect(func(): player.camera_shaking = false)
 

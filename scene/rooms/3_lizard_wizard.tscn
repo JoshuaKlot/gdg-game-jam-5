@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=4 uid="uid://cy2pliyaqv6u7"]
+[gd_scene load_steps=11 format=4 uid="uid://caykcvywxcw28"]
 
-[ext_resource type="Script" uid="uid://b52e20xtwlokv" path="res://scene/rooms/3_lizard_wizard.gd" id="1_5dn4o"]
+[ext_resource type="Script" path="res://scene/rooms/3_lizard_wizard.gd" id="1_5dn4o"]
 [ext_resource type="TileSet" uid="uid://itlf3q1ll4dv" path="res://asset/world_tileset.tres" id="1_ko32d"]
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="2_cv4bx"]
 [ext_resource type="PackedScene" uid="uid://cph8qjpiqew4t" path="res://scene/lizard.tscn" id="3_u2ugs"]
 [ext_resource type="PackedScene" uid="uid://dhwyvdf5x2yfu" path="res://scene/doorway.tscn" id="4_mtvw6"]
-[ext_resource type="PackedScene" path="res://scene/doorway_exit.tscn" id="5_5dn4o"]
+[ext_resource type="PackedScene" uid="uid://c3l7uu3p7rl4p" path="res://scene/doorway_exit.tscn" id="5_5dn4o"]
 [ext_resource type="Texture2D" uid="uid://cg3p6wvhee5ma" path="res://asset/crown.png" id="6_mtvw6"]
+[ext_resource type="AudioStream" uid="uid://bvt6yv40jjhfn" path="res://audio/giant-fall-impact-352446.mp3" id="8_30ytk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u2ugs"]
 size = Vector2(16, 16)
@@ -118,3 +119,6 @@ texture = ExtResource("6_mtvw6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crown"]
 shape = SubResource("RectangleShape2D_5dn4o")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_30ytk")
