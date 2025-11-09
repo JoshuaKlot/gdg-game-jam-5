@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvvi0pwfkcxxv"]
+[gd_scene load_steps=8 format=3 uid="uid://bgxwws10ymwvn"]
 
 [ext_resource type="Texture2D" uid="uid://d0xf58s1afnup" path="res://asset/torch.png" id="1_noimp"]
 [ext_resource type="Script" uid="uid://tjewlf7si0l" path="res://scene/titletorch.gd" id="2_noimp"]
@@ -34,7 +34,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fskki"]
 size = Vector2(10, 10)
 
-[node name="Torch" type="AnimatedSprite2D"]
+[node name="Torch2" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_36k3j")
 autoplay = "default"
 script = ExtResource("2_noimp")

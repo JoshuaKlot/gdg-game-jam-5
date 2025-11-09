@@ -7,7 +7,8 @@ var on_fire := false:
 @onready var player = get_tree().get_first_node_in_group("Player")
 
 func _ready() -> void:
-	z_index = floori(global_position.y)
+	pass
+	#z_index = floori(global_position.y)
 
 func enflame() -> void:
 	if not on_fire:
