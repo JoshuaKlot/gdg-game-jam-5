@@ -61,13 +61,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	var move_vec := Vector2.ZERO if camera_shaking else Input.get_vector("p_left", "p_right", "p_up", "p_down")
 	z_index = floori(global_position.y)
-	
+
 	_G.throwingDirection=facing_direction
 	if _G.throwing:
 		sprite.self_modulate=Color(1.0, 0.53, 0.416, 1.0)
 	else:
 		sprite.self_modulate=Color(1,1,1,1)
-		
+
 	if move_vec:
 		velocity = velocity.move_toward(move_vec * SPEED, ACCEL * delta)
 	else:
