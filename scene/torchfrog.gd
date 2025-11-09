@@ -62,7 +62,7 @@ func enflame() -> void:
 	if not on_fire:
 		# TODO: ignitiion sfx, play a looping sfx after?
 		on_fire = true
-		_G.inventory.set(_G.Item.TORCHFROG, true)
+		_G.inventory_set(_G.Item.TORCHFROG)
 		self_modulate = Color.WHITE
 		(texture as AtlasTexture).region.position = Vector2(16, 0)
 		top_level = true # Don't inherit player position

@@ -58,6 +58,11 @@ enum Item {
 }
 
 var inventory: Dictionary[int, bool] = {}
+signal inventory_changed(item: int)
+
+func inventory_set(item: int, b: bool = true) -> void:
+	inventory.set(item, b)
+	inventory_changed.emit(item)
 
 
 enum Room {
