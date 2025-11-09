@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c0soyym8a2ah5" path="res://scene/rooms/1_torch_puzzle.gd" id="1_kd7lg"]
 [ext_resource type="PackedScene" uid="uid://dhwyvdf5x2yfu" path="res://scene/doorway.tscn" id="2_3f387"]
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="2_dw83u"]
-[ext_resource type="FontFile" path="res://font_8.tres" id="3_0gr7d"]
+[ext_resource type="FontFile" uid="uid://dpro5pxtjc3ru" path="res://font_8.tres" id="3_0gr7d"]
 [ext_resource type="PackedScene" path="res://scene/doorway_exit.tscn" id="3_dw83u"]
 [ext_resource type="PackedScene" uid="uid://b7jruw4rp7iu1" path="res://scene/torch.tscn" id="3_xhdbw"]
 [ext_resource type="Script" uid="uid://nbwr5pxdm2jf" path="res://Label_fontmaker.gd" id="4_xhdbw"]
