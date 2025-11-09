@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c02m2ffgkcsit" path="res://scene/player.gd" id="1_xo3ru"]
 [ext_resource type="Texture2D" uid="uid://buxmjwjmyn7sg" path="res://asset/wizard16.png" id="2_hjaqi"]
-[ext_resource type="PackedScene" uid="uid://1r8xibis4w0t" path="res://scene/spell_learn_effect.tscn" id="3_fvtld"]
+[ext_resource type="PackedScene" path="res://scene/spell_learn_effect.tscn" id="3_fvtld"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvtld"]
 atlas = ExtResource("2_hjaqi")
