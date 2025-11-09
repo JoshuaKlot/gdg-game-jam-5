@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cph8qjpiqew4t"]
+[gd_scene load_steps=7 format=3 uid="uid://cph8qjpiqew4t"]
 
 [ext_resource type="Texture2D" uid="uid://d3755n4lcatie" path="res://asset/lizard.png" id="1_yhhme"]
 [ext_resource type="Script" uid="uid://b8oe7swodqopu" path="res://scene/lizard.gd" id="2_cnbyf"]
+[ext_resource type="AudioStream" uid="uid://cq1lps75iicft" path="res://audio/lizardtongue.mp3" id="3_604j7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cnbyf"]
 atlas = ExtResource("1_yhhme")
@@ -36,3 +37,6 @@ position = Vector2(0, -8)
 points = PackedVector2Array(0, 0, 0, 0)
 width = 2.0
 default_color = Color(0.8509804, 0.34117648, 0.3882353, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_604j7")
