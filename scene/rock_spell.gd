@@ -6,8 +6,10 @@ extends RigidBody2D
 var direction=Vector2.DOWN
 var movingTowards
 var moving=false
-
+func room_changed(room:int):
+	queue_free()
 func _ready():
+	_G.room_changed.connect(room_changed)
 	var prev_rock=get_tree().get_first_node_in_group("Rock_Spell")
 	if prev_rock != self:
 		prev_rock.queue_free()
