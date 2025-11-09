@@ -23,6 +23,7 @@ func enflame() -> void:
 
 func extinguish() -> void:
 	if on_fire:
+		$AudioStreamPlayer2.play()
 		_G.torch_puzzle_lit.set(position, false)
 		_G.torch_puzzle_changed.emit()
 		play("default")
