@@ -42,9 +42,7 @@ func die() -> void:
 func _ready() -> void:
 	world_layer = get_tree().get_first_node_in_group("WorldLayer")
 	if world_layer == null:
-		push_error("no node in WorldLayer group")
-		free()
-		return
+		push_warning("no node in WorldLayer group")
 
 	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 	tween.stop()
@@ -64,6 +62,8 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if dying:
+		return
+	if world_layer == null:
 		return
 
 	var base_pos := to_tile_pos(position)
