@@ -4,7 +4,7 @@ const vec2 screen_size = vec2(256., 192.);
 uniform float size = 50.;
 uniform vec2 pos = vec2(0.0, 0.0);
 uniform vec2 lights[10];
-uniform bool lights_on[10];
+uniform float lights_on[10];
 
 const float bayer[64] = float[](
 	 0., 32.,  8., 40.,  2., 34., 10., 42.,
@@ -23,9 +23,10 @@ void fragment() {
 	if (d < size/2.) COLOR.a = 0.;
 	else if (d < size/2.*1.5 && (1.5-d/(size/2.))*2. * 64. > bayer[int(v.x) % 8 + int(v.y) % 8 * 8]) COLOR.a = 0.;
 	for (int i = 0; i < lights.length(); i++) {
-		if (!lights_on[i]) continue;
+		if (lights_on[i] == 0.) continue;
 		d = distance(v, lights[i]);
-		if (d < size) COLOR.a = 0.;
-		else if (d < size*1.5 && (1.5-d/size)*2. * 64. > bayer[int(v.x) % 8 + int(v.y) % 8 * 8]) COLOR.a = 0.;
+		float s = size * lights_on[i];
+		if (d < s) COLOR.a = 0.;
+		else if (d < s*1.5 && (1.5-d/s)*2. * 64. > bayer[int(v.x) % 8 + int(v.y) % 8 * 8]) COLOR.a = 0.;
 	}
 }

@@ -52,10 +52,10 @@ position = Vector2(256, 80)
 load_room = 4
 
 [connection signal="area_entered" from="RockLayer/rock" to="RockLayer/rock" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@122848" to="RockLayer/@Area2D@122848" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@122849" to="RockLayer/@Area2D@122849" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@122852" to="RockLayer/@Area2D@122852" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@124326" to="RockLayer/@Area2D@124326" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@124327" to="RockLayer/@Area2D@124327" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@124328" to="RockLayer/@Area2D@124328" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@124329" to="RockLayer/@Area2D@124329" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@128389" to="RockLayer/@Area2D@128389" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@128390" to="RockLayer/@Area2D@128390" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@128391" to="RockLayer/@Area2D@128391" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@128392" to="RockLayer/@Area2D@128392" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@128393" to="RockLayer/@Area2D@128393" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@128394" to="RockLayer/@Area2D@128394" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@128395" to="RockLayer/@Area2D@128395" method="_on_area_entered"]
