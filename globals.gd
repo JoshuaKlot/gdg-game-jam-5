@@ -43,14 +43,7 @@ func coords_to_sigil(v: Vector2i) -> int:
 		return -1
 
 	return sigil
-func check_progress():
-	var num_obstuctions=get_tree().get_nodes_in_group("BlockingProgress")
-	if(num_obstuctions.size()>0):
-		print("Blocking Progress: "+str(num_obstuctions.size()))
-		progressBlocked=true
-	else:
-		print("Progress unimpeeded. Continue")
-		progressBlocked=false
+
 
 enum Item {
 	TORCHFROG,
@@ -79,3 +72,13 @@ var room_to_scene: Dictionary[int, PackedScene] = {
 signal request_room_change(room_scene: PackedScene)
 @warning_ignore("unused_signal")
 signal room_changed
+
+
+var torch_puzzle_lit: Dictionary[Vector2, bool] = {}
+
+func torch_puzzle_all_lit() -> bool:
+	for torch_pos in torch_puzzle_lit:
+		if !torch_puzzle_lit[torch_pos]:
+			return false
+
+	return true

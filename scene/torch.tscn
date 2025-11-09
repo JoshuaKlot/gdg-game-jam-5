@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwejetwy5kkp"]
+[gd_scene load_steps=7 format=3 uid="uid://b7jruw4rp7iu1"]
 
 [ext_resource type="Texture2D" uid="uid://d0xf58s1afnup" path="res://asset/torch.png" id="1_lf4n2"]
 [ext_resource type="Script" uid="uid://bq2huwi0w4uck" path="res://scene/torch.gd" id="2_6wjlc"]
@@ -33,7 +33,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fskki"]
 size = Vector2(10, 10)
 
-[node name="Torch" type="AnimatedSprite2D" groups=["BlockingProgress"]]
+[node name="Torch" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_36k3j")
 autoplay = "default"
 script = ExtResource("2_6wjlc")
