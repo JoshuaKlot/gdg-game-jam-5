@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 func enflame() -> void:
 	if not on_fire:
 		# TODO: ignitiion sfx, play a looping sfx after?
-		$AudioStreamPlayer2.play()
+		#$AudioStreamPlayer2.play()
 		on_fire = true
 		_G.inventory_set(_G.Item.TORCHFROG)
 		self_modulate = Color.WHITE
