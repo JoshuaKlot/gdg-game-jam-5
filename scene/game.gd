@@ -84,7 +84,7 @@ func cast_spell(spell: int) -> void:
 	# No regrets
 	_G.can_cast = false
 	_G.can_cast_changed.emit(false)
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(0.8).timeout
 	_G.can_cast = true
 	_G.can_cast_changed.emit(true)
 
