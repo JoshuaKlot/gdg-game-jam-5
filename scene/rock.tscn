@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bj4uyyf7ogjpa" path="res://asset/rock.png" id="2_t7a0u"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o08jy"]
+friction = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_76jnh"]
 atlas = ExtResource("2_t7a0u")

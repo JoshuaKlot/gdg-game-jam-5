@@ -42,6 +42,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			#else:
 				#direction=Vector2.DOWN
 		if area.thrown:
+			speed=30
 			move(tile_size*3,direction)
 		else:
+			speed=10
 			move(tile_size,direction)

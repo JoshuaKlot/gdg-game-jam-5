@@ -114,8 +114,10 @@ height = 15.0
 z_index = 1
 y_sort_enabled = true
 collision_mask = 2
+floor_stop_on_slope = false
 floor_block_on_wall = false
 platform_on_leave = 2
+platform_floor_layers = 4294967040
 script = ExtResource("1_xo3ru")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
