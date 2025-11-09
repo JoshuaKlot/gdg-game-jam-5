@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://cdnq1ofeo2v5d"]
+[gd_scene load_steps=8 format=4 uid="uid://cku0yspdhekey"]
 
 [ext_resource type="TileSet" uid="uid://itlf3q1ll4dv" path="res://asset/world_tileset.tres" id="1_qnq52"]
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="2_dckn5"]
-[ext_resource type="PackedScene" uid="uid://c3l7uu3p7rl4p" path="res://scene/doorway_exit.tscn" id="3_dckn5"]
-[ext_resource type="PackedScene" uid="uid://da1sxrmttrbqa" path="res://scene/rock.tscn" id="3_raj5s"]
+[ext_resource type="PackedScene" path="res://scene/doorway_exit.tscn" id="3_dckn5"]
+[ext_resource type="PackedScene" path="res://scene/rock.tscn" id="3_raj5s"]
 [ext_resource type="PackedScene" uid="uid://dhwyvdf5x2yfu" path="res://scene/doorway.tscn" id="4_ms0js"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_raj5s"]
@@ -23,12 +23,12 @@ rotation = -0.0068274457
 tile_map_data = PackedByteArray("AAAFAP7/AQAAAAAAAAA=")
 tile_set = ExtResource("2_dckn5")
 
-[node name="DoorwayExit" parent="." instance=ExtResource("3_dckn5")]
-position = Vector2(52, 82)
+[node name="DoorwayExitTorchPuzzle" parent="." instance=ExtResource("3_dckn5")]
+position = Vector2(136, 0)
 spawn_from = 1
 
-[node name="Doorway" parent="." instance=ExtResource("4_ms0js")]
-position = Vector2(19, 80)
+[node name="DoorwayTorchPuzzle" parent="." instance=ExtResource("4_ms0js")]
+position = Vector2(136, -24)
 load_room = 1
 
 [node name="RockLayer" type="TileMapLayer" parent="."]
