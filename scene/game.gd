@@ -1,21 +1,25 @@
 extends Node2D
 
 
-var ENTRANCE := _G.room_to_scene[_G.Room.ENTRANCE]
 const PLAYER := preload("res://scene/player.tscn")
 
 @onready var cur_room: Node2D = null
 @onready var cur_room_source: PackedScene = null
 @onready var player: CharacterBody2D = null
 
-func change_room(room: PackedScene) -> void:
+func change_room(room: int) -> void:
+	var room_scene: PackedScene = _G.room_to_scene.get(room)
+	if room_scene == null:
+		push_error("room {0} has no scene mapped to it".format([room]))
+		return
+
 	if cur_room:
 		cur_room.queue_free()
 		await get_tree().process_frame
 
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 
-	cur_room = room.instantiate()
+	cur_room = room_scene.instantiate()
 	add_child(cur_room)
 
 	await get_tree().process_frame
@@ -28,9 +32,9 @@ func change_room(room: PackedScene) -> void:
 
 	player.position = spawn_at.position
 
-	cur_room_source = room
+	cur_room_source = room_scene
 
-	_G.room_changed.emit()
+	_G.room_changed.emit(room)
 	player.set_deferred("process_mode", PROCESS_MODE_INHERIT)
 
 func cast_spell(spell: int) -> void:
@@ -44,7 +48,7 @@ func _ready() -> void:
 	_G.request_cast_spell.connect(cast_spell)
 
 	player = PLAYER.instantiate()
-	change_room(ENTRANCE)
+	change_room(_G.Room.ENTRANCE)
 	add_child(player)
 
 	var spawn: Node2D = get_tree().get_first_node_in_group("PlayerSpawn")

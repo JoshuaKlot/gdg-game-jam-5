@@ -5,9 +5,8 @@ extends Area2D
 
 func _body_entered(b: Node2D) -> void:
 	if b.is_in_group("Player"):
-		_G.currentRoom=load_room
-		_G.request_room_change.emit(_G.room_to_scene[load_room])
-		
+		_G.request_room_change.emit(load_room)
+
 
 func _ready() -> void:
 	body_entered.connect(_body_entered)

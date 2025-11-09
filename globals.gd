@@ -1,13 +1,17 @@
 extends Node
 
 
-var currentRoom := 0
 var casting := false
-var progressBlocked := false
+var cur_cast_method: CastMethod = CastMethod.GROUND
 
 enum Spell {
 	FIRE,
 	AIR,
+}
+
+enum CastMethod {
+	GROUND,
+	THROW
 }
 
 const atlas_tile_size := Vector2i(16, 16)
@@ -19,6 +23,11 @@ const sigil_atlas_coords: Dictionary[int, Vector2i] = {
 
 var collected_sigils: Array[int] = []
 signal sigil_collected(sigil: int)
+
+var collected_cast_methods: Dictionary[int, bool] = {
+	CastMethod.GROUND: true,
+	CastMethod.THROW: false,
+}
 
 const spell_scenes: Dictionary[int, PackedScene] = {
 	Spell.FIRE: preload("res://scene/fire_spell.tscn"),
@@ -68,9 +77,9 @@ var room_to_scene: Dictionary[int, PackedScene] = {
 }
 
 @warning_ignore("unused_signal")
-signal request_room_change(room_scene: PackedScene)
+signal request_room_change(room: int)
 @warning_ignore("unused_signal")
-signal room_changed
+signal room_changed(room: int)
 
 
 var torch_puzzle_lit: Dictionary[Vector2, bool] = {}
