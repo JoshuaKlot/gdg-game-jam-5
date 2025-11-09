@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=4 uid="uid://ddwl0vpbepanw"]
+[gd_scene load_steps=11 format=4 uid="uid://ddwl0vpbepanw"]
 
 [ext_resource type="TileSet" uid="uid://itlf3q1ll4dv" path="res://asset/world_tileset.tres" id="1_qnq52"]
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="2_dckn5"]
-[ext_resource type="PackedScene" path="res://scene/doorway_exit.tscn" id="3_dckn5"]
+[ext_resource type="PackedScene" uid="uid://c3l7uu3p7rl4p" path="res://scene/doorway_exit.tscn" id="3_dckn5"]
 [ext_resource type="PackedScene" uid="uid://da1sxrmttrbqa" path="res://scene/rock.tscn" id="3_raj5s"]
 [ext_resource type="PackedScene" uid="uid://dhwyvdf5x2yfu" path="res://scene/doorway.tscn" id="4_ms0js"]
+[ext_resource type="FontFile" uid="uid://cmq0wuw6hkn7e" path="res://font_8.tres" id="6_4l1fl"]
+[ext_resource type="Script" uid="uid://nbwr5pxdm2jf" path="res://Label_fontmaker.gd" id="7_tsevb"]
+[ext_resource type="Image" uid="uid://giduoh6jvbgx" path="res://font-serif.png" id="8_cue7y"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_raj5s"]
 scenes/1/scene = ExtResource("3_raj5s")
@@ -19,8 +22,10 @@ tile_map_data = PackedByteArray("AAAAAAIAAAAAAAIAAAAAAAMAAAAKAAAAAAAAAAYAAAAKAAM
 tile_set = ExtResource("1_qnq52")
 
 [node name="SigilLayer" type="TileMapLayer" parent="." groups=["SigilLayer"]]
+position = Vector2(1, 0)
 rotation = -0.0068274457
-tile_map_data = PackedByteArray("AAAEAP7/AQABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAMAP7/AQABAAAAAAA=")
+
 tile_set = ExtResource("2_dckn5")
 
 [node name="DoorwayExitTorchPuzzle" parent="." instance=ExtResource("3_dckn5")]
@@ -50,3 +55,23 @@ spawn_from = 4
 [node name="DoorwayTorchHint" parent="." instance=ExtResource("4_ms0js")]
 position = Vector2(256, 80)
 load_room = 4
+
+[node name="Label" type="Label" parent="."]
+offset_left = 184.0
+offset_top = -40.0
+offset_right = 216.0
+offset_bottom = -32.0
+theme_override_fonts/font = ExtResource("6_4l1fl")
+theme_override_font_sizes/font_size = 8
+text = "GAME"
+script = ExtResource("7_tsevb")
+img = ExtResource("8_cue7y")
+
+[connection signal="area_entered" from="RockLayer/rock" to="RockLayer/rock" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@177806" to="RockLayer/@Area2D@177806" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@177807" to="RockLayer/@Area2D@177807" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@177808" to="RockLayer/@Area2D@177808" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@177809" to="RockLayer/@Area2D@177809" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@177810" to="RockLayer/@Area2D@177810" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@177811" to="RockLayer/@Area2D@177811" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@177812" to="RockLayer/@Area2D@177812" method="_on_area_entered"]
