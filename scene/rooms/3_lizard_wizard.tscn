@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="2_cv4bx"]
 [ext_resource type="PackedScene" uid="uid://cph8qjpiqew4t" path="res://scene/lizard.tscn" id="3_u2ugs"]
 [ext_resource type="PackedScene" uid="uid://dhwyvdf5x2yfu" path="res://scene/doorway.tscn" id="4_mtvw6"]
-[ext_resource type="PackedScene" uid="uid://c3l7uu3p7rl4p" path="res://scene/doorway_exit.tscn" id="5_5dn4o"]
+[ext_resource type="PackedScene" path="res://scene/doorway_exit.tscn" id="5_5dn4o"]
 [ext_resource type="Texture2D" uid="uid://cg3p6wvhee5ma" path="res://asset/crown.png" id="6_mtvw6"]
 [ext_resource type="AudioStream" uid="uid://bvt6yv40jjhfn" path="res://audio/giant-fall-impact-352446.mp3" id="8_30ytk"]
 
@@ -23,6 +23,7 @@ tile_map_data = PackedByteArray("AAAFAAAAAAADAAAAAAAGAAAAAAACAAAAAAAHAAAAAAADAAA
 tile_set = ExtResource("1_ko32d")
 
 [node name="SigilLayer" type="TileMapLayer" parent="." groups=["SigilLayer"]]
+tile_map_data = PackedByteArray("AAAWAAEAAQAAAAMAAAA=")
 tile_set = ExtResource("2_cv4bx")
 
 [node name="BlockUntilSolved" type="TileMapLayer" parent="."]

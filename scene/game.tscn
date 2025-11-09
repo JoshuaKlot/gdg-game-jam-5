@@ -10,3 +10,4 @@ script = ExtResource("1_p1ry8")
 layer = 2
 
 [node name="CastSpell" parent="CastSpell" instance=ExtResource("4_xwcet")]
+visible = false

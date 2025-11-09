@@ -7,6 +7,9 @@ extends Control
 @onready var throw_mod: TextureRect = $HFlowContainer/ThrowMod
 
 func append_spell(spell: int) -> void:
+	if spell == _G.Spell.THROW:
+		return
+
 	var new_rect: TextureRect = spell_rect.instantiate()
 	new_rect.spell = spell
 	new_rect.index = _G.collected_sigils.size() - 1
