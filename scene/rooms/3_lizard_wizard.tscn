@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://caykcvywxcw28"]
+[gd_scene load_steps=11 format=4 uid="uid://cy2pliyaqv6u7"]
 
-[ext_resource type="Script" path="res://scene/rooms/3_lizard_wizard.gd" id="1_5dn4o"]
+[ext_resource type="Script" uid="uid://b52e20xtwlokv" path="res://scene/rooms/3_lizard_wizard.gd" id="1_5dn4o"]
 [ext_resource type="TileSet" uid="uid://itlf3q1ll4dv" path="res://asset/world_tileset.tres" id="1_ko32d"]
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="2_cv4bx"]
 [ext_resource type="PackedScene" uid="uid://cph8qjpiqew4t" path="res://scene/lizard.tscn" id="3_u2ugs"]
