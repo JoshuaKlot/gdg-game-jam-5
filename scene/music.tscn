@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtem272gvvvm6"]
+[gd_scene load_steps=3 format=3 uid="uid://dtem272gvvvm6"]
 
 [ext_resource type="AudioStream" uid="uid://c68rfg77j8xrw" path="res://audio/cave_bgm.ogg" id="1_y257y"]
+[ext_resource type="Script" uid="uid://dw0wc72gonhrg" path="res://scene/music.gd" id="2_ctbg1"]
 
 [node name="Music" type="AudioStreamPlayer"]
 stream = ExtResource("1_y257y")
 pitch_scale = 0.91
 autoplay = true
+script = ExtResource("2_ctbg1")
