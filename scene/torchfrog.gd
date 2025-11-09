@@ -70,8 +70,8 @@ func enflame() -> void:
 		Darkness.get_node("ColorRect").material["shader_parameter/lights_on"][0] = 1
 
 		player.camera_shaking = true
-		get_tree().create_timer(2).timeout.connect(cave_in)
-		get_tree().create_timer(4).timeout.connect(func(): player.camera_shaking = false)
+		get_tree().create_timer(1).timeout.connect(cave_in)
+		get_tree().create_timer(2).timeout.connect(func(): player.camera_shaking = false)
 
 func cave_in() -> void:
 	var t = get_tree().current_scene.get_node("Entrance/WorldLayer")

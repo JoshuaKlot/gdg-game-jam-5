@@ -45,6 +45,8 @@ func room_changed() -> void:
 	camera.limit_right=_G.camera_constraints[_G.currentRoom][2]
 	camera.limit_bottom=_G.camera_constraints[_G.currentRoom][3]
 	sigil_layer = get_tree().get_first_node_in_group("SigilLayer")
+	for i in 9:
+		Darkness.get_node("ColorRect").material["shader_parameter/lights_on"][1 + i] = 0
 
 func _ready() -> void:
 	_G.room_changed.connect(room_changed)
