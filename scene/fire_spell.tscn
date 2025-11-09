@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://qdfg6o3r4y47"]
+[gd_scene load_steps=11 format=3 uid="uid://qdfg6o3r4y47"]
 
 [ext_resource type="Script" uid="uid://bdc3shuv4gxyv" path="res://scene/fire_spell.gd" id="1_rvosn"]
 [ext_resource type="Texture2D" uid="uid://croesrkgxnckk" path="res://asset/fireball.png" id="2_lofvj"]
+[ext_resource type="AudioStream" uid="uid://cqcwe8efluu5g" path="res://audio/firespell.mp3" id="3_5wyn2"]
+[ext_resource type="AudioStream" uid="uid://dcyqbpgxgy65f" path="res://audio/thrownfirespell.mp3" id="4_46k7n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5wyn2"]
 atlas = ExtResource("2_lofvj")
@@ -53,3 +55,9 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lofvj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5wyn2")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_46k7n")
