@@ -71,6 +71,7 @@ enum Room {
 	TORCH_PUZ,
 	ROCK_PUZ,
 	LIZ_WIZ,
+	TORCH_HINT,
 }
 
 var camera_constraints:Dictionary[int,Array]={
@@ -78,6 +79,7 @@ var camera_constraints:Dictionary[int,Array]={
 	Room.TORCH_PUZ: [0,0,416,288],
 	Room.ROCK_PUZ:[0,-48,272,208],
 	Room.LIZ_WIZ:[0,0,416,288],
+	Room.TORCH_HINT: [0,0,416,288],
 }
 
 # Using preload makes doorway.tscn die, can't use const dict
@@ -86,6 +88,7 @@ var room_to_scene: Dictionary[int, PackedScene] = {
 	Room.TORCH_PUZ: load("res://scene/rooms/1_torch_puzzle.tscn"),
 	Room.ROCK_PUZ: load("res://scene/rooms/2_rock_puzzle.tscn"),
 	Room.LIZ_WIZ: load("res://scene/rooms/3_lizard_wizard.tscn"),
+	Room.TORCH_HINT: load("res://scene/rooms/4_torch_hint.tscn"),
 }
 
 @warning_ignore("unused_signal")
