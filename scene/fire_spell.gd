@@ -5,6 +5,7 @@ extends Area2D
 @export var lifetime: float = 0.5
 @export var max_scale: Vector2 = Vector2.ONE * 1.5
 @export var distance: float = 100
+@onready var player = get_tree().get_first_node_in_group("Player")
 
 var tween: Tween
 
@@ -35,5 +36,9 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if tween.is_running():
+		Darkness.get_node("ColorRect").material["shader_parameter/lights_on"][9] = (1.5 - scale.x) * (.8/.5)
+		print(Darkness.get_node("ColorRect").material["shader_parameter/lights_on"][9])
+		Darkness.get_node("ColorRect").material["shader_parameter/lights"][9] = global_position - player.get_node("Camera2D").get_screen_center_position() + Vector2(256/2, 192/2)
 		return
+	Darkness.get_node("ColorRect").material["shader_parameter/lights_on"][9] = 0
 	queue_free()
