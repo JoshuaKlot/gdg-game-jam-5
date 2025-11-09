@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cdnq1ofeo2v5d"]
+[gd_scene load_steps=8 format=4 uid="uid://ddwl0vpbepanw"]
 
 [ext_resource type="TileSet" uid="uid://itlf3q1ll4dv" path="res://asset/world_tileset.tres" id="1_qnq52"]
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="2_dckn5"]
@@ -32,7 +32,7 @@ position = Vector2(136, -32)
 load_room = 1
 
 [node name="RockLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAIAAQAAAAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAACAAMAAAAAAAAAAQACAAYAAAAAAAAAAQAOAAMAAAAAAAAAAQAOAAYAAAAAAAAAAQADAAQAAAAAAAAAAQADAAUAAAAAAAAAAQANAAQAAAAAAAAAAQANAAUAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_74b6j")
 
 [node name="DoorwayExitLizardWizard" parent="." instance=ExtResource("3_dckn5")]
@@ -42,3 +42,20 @@ spawn_from = 3
 [node name="DoorwayLizardWizard" parent="." instance=ExtResource("4_ms0js")]
 position = Vector2(16, 80)
 load_room = 3
+
+[node name="DoorwayExitTorchHint" parent="." instance=ExtResource("3_dckn5")]
+position = Vector2(232, 80)
+spawn_from = 4
+
+[node name="DoorwayTorchHint" parent="." instance=ExtResource("4_ms0js")]
+position = Vector2(256, 80)
+load_room = 4
+
+[connection signal="area_entered" from="RockLayer/rock" to="RockLayer/rock" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@122848" to="RockLayer/@Area2D@122848" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@122849" to="RockLayer/@Area2D@122849" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@122852" to="RockLayer/@Area2D@122852" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@124326" to="RockLayer/@Area2D@124326" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@124327" to="RockLayer/@Area2D@124327" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@124328" to="RockLayer/@Area2D@124328" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@124329" to="RockLayer/@Area2D@124329" method="_on_area_entered"]
