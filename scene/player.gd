@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 	
 	_G.throwingDirection=facing_direction
 	if _G.throwing:
-		sprite.self_modulate=Color(210.813, 90.926, 78.082, 1.0)
+		sprite.self_modulate=Color(1.0, 0.53, 0.416, 1.0)
 	else:
 		sprite.self_modulate=Color(1,1,1,1)
 		

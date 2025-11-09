@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c3rtfgxxgatqd"]
 
-[ext_resource type="Script" path="res://scene/air_spell.gd" id="1_ih06a"]
+[ext_resource type="Script" uid="uid://caapvhjrjk7f" path="res://scene/air_spell.gd" id="1_ih06a"]
 [ext_resource type="Texture2D" uid="uid://cyyw40cewoj6" path="res://asset/wind.png" id="2_0svhn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_acaad"]
