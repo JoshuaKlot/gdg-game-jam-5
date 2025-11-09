@@ -16,6 +16,7 @@ func _ready():
 	position=position+_G.throwingDirection*tile_size
 	thrown=_G.throwing
 	_G.throwing=false
+	$AudioStreamPlayer.play()
 	if thrown:
 		moving=true
 		direction = _G.throwingDirection

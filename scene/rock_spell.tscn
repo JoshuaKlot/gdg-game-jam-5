@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://jta4ndc7tp7k"]
+[gd_scene load_steps=14 format=3 uid="uid://jta4ndc7tp7k"]
 
 [ext_resource type="Script" uid="uid://ldx6kdhxkdpx" path="res://scene/rock_spell.gd" id="1_8dush"]
 [ext_resource type="Texture2D" uid="uid://bj4uyyf7ogjpa" path="res://asset/rock.png" id="2_70lxo"]
+[ext_resource type="AudioStream" uid="uid://bdfj8p4qpi5y1" path="res://audio/rockspell.mp3" id="3_70lxo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o08jy"]
 friction = 0.0
@@ -90,5 +91,8 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_o08jy")
 debug_color = Color(0.99822754, 0.03747482, 3.85046e-07, 0.41960785)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_70lxo")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

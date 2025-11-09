@@ -1,8 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3di3g847gjv2"]
+[gd_scene load_steps=20 format=3 uid="uid://b3di3g847gjv2"]
 
 [ext_resource type="Script" uid="uid://ctbggnn5324xd" path="res://scene/ice_spell.gd" id="1_if1qk"]
 [ext_resource type="Texture2D" uid="uid://b5x5bjnjsvejp" path="res://asset/snowball-break.png" id="2_lbi36"]
 [ext_resource type="Texture2D" uid="uid://bq8oy72be344q" path="res://asset/snowball.png" id="3_kvq3n"]
+[ext_resource type="AudioStream" uid="uid://b5x0wd7tcjw0j" path="res://audio/icespell.mp3" id="4_lbi36"]
+[ext_resource type="AudioStream" uid="uid://de0cg7t2xy0kc" path="res://audio/thrownicespell.mp3" id="5_kvq3n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m2cns"]
 atlas = ExtResource("2_lbi36")
@@ -112,3 +114,9 @@ sprite_frames = SubResource("SpriteFrames_6karo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fqa14")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lbi36")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_kvq3n")
