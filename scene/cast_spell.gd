@@ -5,7 +5,6 @@ extends Control
 @onready var container: HFlowContainer = $HFlowContainer
 @onready var spell_rect := preload("res://scene/spell_rect.tscn")
 
-
 func append_spell(spell: int) -> void:
 	var new_rect: TextureRect = spell_rect.instantiate()
 	new_rect.spell = spell
@@ -13,13 +12,21 @@ func append_spell(spell: int) -> void:
 	container.add_child(new_rect)
 	new_rect.call("redraw")
 
+func cast_requested(_spell) -> void:
+	visible = false
+
 func _ready() -> void:
 	visible = false
 	_G.sigil_collected.connect(append_spell)
+	_G.request_cast_spell.connect(cast_requested)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if _G.collected_sigils.size() == 0:
 		return
+
+	if !_G.can_cast:
+		return
+
 	if event.is_action_pressed("throw_toggle") and _G.casting and _G.canThrow:
 		_G.throwing=!_G.throwing
 	if event.is_action_pressed("p_cast") and !_G.casting:

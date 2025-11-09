@@ -43,6 +43,13 @@ func cast_spell(spell: int) -> void:
 	add_child(new)
 	_G.casting = false
 
+	# No regrets
+	_G.can_cast = false
+	_G.can_cast_changed.emit(false)
+	await get_tree().create_timer(1.5).timeout
+	_G.can_cast = true
+	_G.can_cast_changed.emit(true)
+
 func _ready() -> void:
 	_G.request_room_change.connect(change_room)
 	_G.request_cast_spell.connect(cast_spell)
