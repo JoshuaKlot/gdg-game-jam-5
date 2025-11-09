@@ -3,7 +3,9 @@ extends Node
 
 var casting := false
 var cur_cast_method: CastMethod = CastMethod.GROUND
-
+var canThrow := true
+var throwing = false
+var throwingDirection = Vector2.DOWN
 enum Spell {
 	FIRE,
 	AIR,
@@ -58,6 +60,11 @@ enum Item {
 }
 
 var inventory: Dictionary[int, bool] = {}
+signal inventory_changed(item: int)
+
+func inventory_set(item: int, b: bool = true) -> void:
+	inventory.set(item, b)
+	inventory_changed.emit(item)
 
 
 enum Room {
