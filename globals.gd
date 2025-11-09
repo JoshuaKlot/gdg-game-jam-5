@@ -16,7 +16,7 @@ enum Spell {
 }
 
 const atlas_tile_size := Vector2i(16, 16)
-const atlas_size := Vector2i(4, 4)
+const atlas_size := Vector2i(4, 3) # Last row is for modifiers (throw)
 const sigil_atlas_coords: Dictionary[int, Vector2i] = {
 	Spell.FIRE: atlas_tile_size * Vector2i(0, 0),
 	Spell.AIR: atlas_tile_size * Vector2i(1, 0),

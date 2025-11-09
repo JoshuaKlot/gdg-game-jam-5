@@ -3,6 +3,7 @@ extends TextureRect
 
 @export var spell: int = -1 # Use _G.Spell when setting this
 @export var index: int = -1 # The index of the spell when presented in the cast UI
+@export var is_throw_mod := false
 
 @onready var label: RichTextLabel = $TextureRect/RichTextLabel
 
@@ -12,8 +13,13 @@ func _ready() -> void:
 	# Same issue as with the lizards. All spell_rect share the same AtlasTexture
 	# and affect each other.
 	texture = texture.duplicate()
+	redraw()
 
 func redraw() -> void:
+	if is_throw_mod:
+		label.text = OS.get_keycode_string(InputMap.action_get_events("throw_toggle")[0].physical_keycode)
+		return
+
 	assert(spell != -1, "spell must be set before redraw")
 	assert(index != -1, "index must be set before redraw")
 
@@ -31,6 +37,13 @@ func redraw() -> void:
 			break
 
 func _unhandled_input(event: InputEvent) -> void:
+	if is_throw_mod:
+		if _G.casting && event.is_action_pressed("throw_toggle"):
+			_G.throwing = !_G.throwing
+
+		self_modulate = Color.FIREBRICK if _G.throwing else Color.WHITE
+		return
+
 	if index < 0:
 		return
 

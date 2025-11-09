@@ -4,6 +4,7 @@ extends Control
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var container: HFlowContainer = $HFlowContainer
 @onready var spell_rect := preload("res://scene/spell_rect.tscn")
+@onready var throw_mod: TextureRect = $HFlowContainer/ThrowMod
 
 func append_spell(spell: int) -> void:
 	var new_rect: TextureRect = spell_rect.instantiate()
@@ -27,10 +28,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if !_G.can_cast:
 		return
 
-	if event.is_action_pressed("throw_toggle") and _G.casting and _G.canThrow:
-		_G.throwing=!_G.throwing
 	if event.is_action_pressed("p_cast") and !_G.casting:
 		_G.casting = true
+		if _G.canThrow:
+			throw_mod.process_mode = Node.PROCESS_MODE_INHERIT
+			throw_mod.visible = true
+
 		# anim_player.play("appear", -1, 5)
 	elif event.is_action_pressed("cast_cancel") and _G.casting:
 		_G.casting = false
