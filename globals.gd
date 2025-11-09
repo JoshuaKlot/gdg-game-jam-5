@@ -78,7 +78,7 @@ var camera_constraints:Dictionary[int,Array]={
 	Room.ENTRANCE: [64,-16,288,160],
 	Room.TORCH_PUZ: [0,0,416,288],
 	Room.ROCK_PUZ:[0,-48,272,208],
-	Room.LIZ_WIZ:[0,0,416,288],
+	Room.LIZ_WIZ:[0,0,416,368],
 	Room.TORCH_HINT: [0,0,416,288],
 }
 
@@ -102,6 +102,7 @@ var torch_ids: Dictionary[Vector2, int] = {}
 @warning_ignore("unused_signal")
 signal torch_puzzle_changed
 var torch_puzzle_solved := false
+var lizard_wizard_solved := false
 
 func torch_puzzle_all_lit() -> bool:
 	var count := 0

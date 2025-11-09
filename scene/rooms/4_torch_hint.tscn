@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cmq0wuw6hkn7e" path="res://font_8.tres" id="5_ijk0o"]
 [ext_resource type="Script" uid="uid://nbwr5pxdm2jf" path="res://Label_fontmaker.gd" id="6_gdu08"]
 [ext_resource type="Image" uid="uid://giduoh6jvbgx" path="res://font-serif.png" id="7_qty3p"]
-[ext_resource type="PackedScene" uid="uid://c3l7uu3p7rl4p" path="res://scene/doorway_exit.tscn" id="8_xksoi"]
+[ext_resource type="PackedScene" path="res://scene/doorway_exit.tscn" id="8_xksoi"]
 [ext_resource type="PackedScene" uid="uid://dhwyvdf5x2yfu" path="res://scene/doorway.tscn" id="9_ey1a3"]
 
 [node name="TorchHint" type="Node2D"]
@@ -88,10 +88,10 @@ text = "5+1N3+3"
 script = ExtResource("6_gdu08")
 img = ExtResource("7_qty3p")
 
-[node name="DoorwayExitEntrance" parent="." instance=ExtResource("8_xksoi")]
+[node name="DoorwayExitRockPuzzle" parent="." instance=ExtResource("8_xksoi")]
 position = Vector2(40, 72)
 spawn_from = 2
 
-[node name="DoorwayEntrance2" parent="." instance=ExtResource("9_ey1a3")]
+[node name="DoorwayRockPuzzle" parent="." instance=ExtResource("9_ey1a3")]
 position = Vector2(16, 72)
 load_room = 2

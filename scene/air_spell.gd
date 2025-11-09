@@ -4,7 +4,7 @@ extends Area2D
 @export var thrown := false
 @export var lifetime: float = 0.35
 @export var max_scale: Vector2 = Vector2.ONE * 1.35
-@export var distance:float =100
+@export var distance:float = 96
 var tween: Tween
 
 func _area_entered(a: Area2D) -> void:
