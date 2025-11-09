@@ -1,27 +1,33 @@
-[gd_scene load_steps=13 format=4 uid="uid://bjqm1moabwhbh"]
+[gd_scene load_steps=15 format=4 uid="uid://bjqm1moabwhbh"]
 
 [ext_resource type="TileSet" uid="uid://itlf3q1ll4dv" path="res://asset/world_tileset.tres" id="1_4lubp"]
-[ext_resource type="Script" uid="uid://c6v7in5bcekfw" path="res://scene/rooms/0_entrance.gd" id="1_5xfgk"]
+[ext_resource type="Script" path="res://scene/rooms/0_entrance.gd" id="1_5xfgk"]
 [ext_resource type="PackedScene" uid="uid://beppvlffivbr4" path="res://scene/torchfrog.tscn" id="2_5a6l5"]
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="2_gqe2v"]
 [ext_resource type="FontFile" uid="uid://clij8gx6fnknj" path="res://font_8.tres" id="3_8ynxj"]
 [ext_resource type="PackedScene" uid="uid://dhwyvdf5x2yfu" path="res://scene/doorway.tscn" id="3_gqe2v"]
 [ext_resource type="Script" uid="uid://nbwr5pxdm2jf" path="res://Label_fontmaker.gd" id="3_t4bf8"]
-[ext_resource type="PackedScene" path="res://scene/doorway_exit.tscn" id="4_5a6l5"]
+[ext_resource type="PackedScene" uid="uid://c3l7uu3p7rl4p" path="res://scene/doorway_exit.tscn" id="4_5a6l5"]
 [ext_resource type="Image" uid="uid://giduoh6jvbgx" path="res://font-serif.png" id="4_rmb0h"]
+[ext_resource type="Shader" uid="uid://ckv0lljnj6nhg" path="res://darkness_block.gdshader" id="7_6ofiy"]
 
-[sub_resource type="Gradient" id="Gradient_8ynxj"]
-offsets = PackedFloat32Array(0.58928573, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.09803922)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ofiy"]
+shader = ExtResource("7_6ofiy")
+
+[sub_resource type="Gradient" id="Gradient_6ofiy"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.36333334, 0.85)
+colors = PackedColorArray(0.20784314, 0.20784314, 0.27450982, 0, 0.20784314, 0.20784314, 0.27450982, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5xfgk"]
-gradient = SubResource("Gradient_8ynxj")
-fill_from = Vector2(1, 0.5)
-fill_to = Vector2(0, 0.5)
+gradient = SubResource("Gradient_6ofiy")
+width = 176
+height = 176
+fill_from = Vector2(0, 1)
+fill_to = Vector2(1, 1)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_5xfgk"]
-a = Vector2(0, -32)
-b = Vector2(0, 32)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6ofiy"]
+distance = -51.199997
 
 [node name="Entrance" type="Node2D"]
 script = ExtResource("1_5xfgk")
@@ -69,12 +75,15 @@ position = Vector2(168, 40)
 
 [node name="AbsoluteDarkness" type="Sprite2D" parent="."]
 z_index = 128
-position = Vector2(235, 73)
-scale = Vector2(2.125, 2.75)
+material = SubResource("ShaderMaterial_6ofiy")
+position = Vector2(200, 72)
 texture = SubResource("GradientTexture2D_5xfgk")
+offset = Vector2(0, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="AbsoluteDarkness"]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AbsoluteDarkness/StaticBody2D"]
-shape = SubResource("SegmentShape2D_5xfgk")
+position = Vector2(7.999997, 8.000004)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_6ofiy")
