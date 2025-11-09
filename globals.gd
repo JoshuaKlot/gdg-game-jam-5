@@ -36,16 +36,12 @@ func collect_sigil(s: int) -> bool:
 	return true
 
 func coords_to_sigil(v: Vector2i) -> int:
-	var sigil := v.y * atlas_size.x + v.x
-	if sigil < 0 || sigil > atlas_size.x * atlas_size.y:
-		push_error("tried to access coords {0} outside of atlas {1}".format([v, atlas_size]))
-		return -1
+	v *= atlas_tile_size # We're looking at atlas coordinates which are in absolute pixels, not col by row
+	for sigil in sigil_atlas_coords:
+		if sigil_atlas_coords.get(sigil) == v:
+			return sigil
 
-	if sigil >= sigil_atlas_coords.size():
-		push_error("tried to access sigil {0} outside of size {1}".format([sigil, sigil_atlas_coords.size()]))
-		return -1
-
-	return sigil
+	return -1
 
 
 enum Item {
