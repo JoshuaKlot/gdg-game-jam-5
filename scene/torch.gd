@@ -13,7 +13,7 @@ func _ready() -> void:
 func enflame() -> void:
 	if not on_fire:
 		_G.torch_puzzle_lit.set(position, true)
-		$".".play("lit")
+		play("lit")
 		on_fire = true
 
 

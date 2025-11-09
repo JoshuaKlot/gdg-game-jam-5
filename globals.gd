@@ -82,3 +82,13 @@ func torch_puzzle_all_lit() -> bool:
 			return false
 
 	return true
+
+func play_sound(stream: AudioStream, parent: Node = null, pitch = 1.0):
+	var a = AudioStreamPlayer.new()
+	a.stream = stream
+	a.pitch_scale = pitch
+	a.process_mode = PROCESS_MODE_ALWAYS
+	a.finished.connect(a.queue_free)
+	if parent: parent.add_child(a)
+	else: add_child(a)
+	a.play()
