@@ -78,7 +78,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	var player_tile := to_tile_pos(position)
-	if nearest_sigil(player_tile) >= 0:
+	var near_sigil := nearest_sigil(player_tile)
+	if near_sigil >= 0 && near_sigil not in _G.collected_sigils:
 		sigil_glow = lerpf(sigil_glow, 1, delta * 2)
 	else:
 		sigil_glow = lerpf(sigil_glow, 0, delta * 3)
