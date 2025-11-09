@@ -9,6 +9,7 @@ const SPIN_TOTAL := 2.5 * PI
 @export var hold_duration := 0.4
 @export var tongue_length := 32.0
 @export var steppable := false
+@export var spinnable := true
 
 @onready var detector: Area2D = $Detector
 @onready var tongue: Area2D = $Tongue
@@ -56,7 +57,7 @@ func detector_entered(a: Area2D):
 		extend_tween.play()
 		extending = true
 		extend_count += 1
-	elif !steppable && a.is_in_group("Windy") && !wind_spin_tween.is_running():
+	elif spinnable && !extending && !steppable && a.is_in_group("Windy") && !wind_spin_tween.is_running():
 		wind_spin_tween.play()
 
 # Only steppable lizards connect this

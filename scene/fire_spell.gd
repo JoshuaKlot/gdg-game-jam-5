@@ -8,16 +8,24 @@ extends Area2D
 
 var tween: Tween
 
+func _area_entered(a: Area2D) -> void:
+	if a.is_in_group("BlockSpell"):
+		tween.stop()
+		queue_free()
+
 func _ready() -> void:
+	area_entered.connect(_area_entered)
 	thrown=_G.throwing
 	_G.throwing=false
 	if thrown:
+		$AudioStreamPlayer2.play()
 		tween=create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 		tween.stop()
 		tween.tween_property(self,"position",position+(distance*_G.throwingDirection),lifetime)
 		tween.tween_property(self, "scale", max_scale, lifetime)
 		tween.tween_property(self, "modulate:a", 0, lifetime + 0.1)
 	else:
+		$AudioStreamPlayer.play()
 		tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 		tween.stop()
 		tween.tween_property(self, "scale", max_scale, lifetime)
