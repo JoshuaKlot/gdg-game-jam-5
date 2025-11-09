@@ -16,6 +16,7 @@ func _ready() -> void:
 
 func enflame() -> void:
 	if not on_fire:
+		print('e')
 		_G.torch_puzzle_lit.set(position, true)
 		_G.torch_puzzle_changed.emit()
 		play("lit")
