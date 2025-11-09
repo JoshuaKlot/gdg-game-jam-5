@@ -40,6 +40,7 @@ func nearest_sigil(v: Vector2i) -> int:
 
 func room_changed() -> void:
 	_G.check_progress()
+	camera.reset_smoothing()
 	camera.limit_left=_G.camera_constraints[_G.currentRoom][0]
 	camera.limit_top=_G.camera_constraints[_G.currentRoom][1]
 	camera.limit_right=_G.camera_constraints[_G.currentRoom][2]
