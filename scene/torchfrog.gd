@@ -71,10 +71,11 @@ func enflame() -> void:
 
 		player.camera_shaking = true
 		get_tree().create_timer(1).timeout.connect(cave_in)
-		get_tree().create_timer(2).timeout.connect(func(): player.camera_shaking = false)
+		get_tree().create_timer(1.5).timeout.connect(func(): player.camera_shaking = false)
 
 func cave_in() -> void:
 	var t = get_tree().current_scene.get_node("Entrance/WorldLayer")
 	for i in 2:
 		for j in 4:
 			t.set_cell(Vector2i(4 + i, 3 + j), 0, Vector2i(0 + i, 2 + j % 2))
+	get_tree().current_scene.get_node("Entrance/BlockLayer").enabled = false

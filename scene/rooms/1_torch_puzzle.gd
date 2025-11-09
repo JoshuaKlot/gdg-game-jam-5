@@ -6,7 +6,7 @@ func check_torches() -> void:
 	if $BlockUntilAllLitLayer.enabled and _G.torch_puzzle_all_lit():
 		player.camera_shaking = true
 		get_tree().create_timer(1).timeout.connect(func(): $BlockUntilAllLitLayer.enabled = false)
-		get_tree().create_timer(2).timeout.connect(func(): player.camera_shaking = false)
+		get_tree().create_timer(1.5).timeout.connect(func(): player.camera_shaking = false)
 		_G.torch_puzzle_solved = true
 
 func _ready() -> void:
