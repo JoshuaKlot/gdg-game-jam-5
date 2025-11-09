@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=3 uid="uid://1r8xibis4w0t"]
+
+[ext_resource type="Script" uid="uid://bu6hspvh58yek" path="res://scene/spell_learn_effect.gd" id="1_nrs18"]
+[ext_resource type="Texture2D" uid="uid://47cihrn77eye" path="res://asset/learn_sparkle.png" id="1_tws4q"]
+
+[sub_resource type="Gradient" id="Gradient_nrs18"]
+offsets = PackedFloat32Array(0, 0.75645226)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1relt"]
+gradient = SubResource("Gradient_nrs18")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tws4q"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_1relt"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_fd6jg"]
+resource_name = "fade_light"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.875, 2.85, 4.5),
+"transitions": PackedFloat32Array(1, 3.2928452, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cfbml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mcbya"]
+_data = {
+&"RESET": SubResource("Animation_cfbml"),
+&"fade_light": SubResource("Animation_fd6jg")
+}
+
+[node name="SpellLearnEffect" type="Node2D"]
+script = ExtResource("1_nrs18")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+enabled = false
+texture = SubResource("GradientTexture2D_1relt")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_tws4q")
+emitting = false
+amount = 12
+texture = ExtResource("1_tws4q")
+one_shot = true
+lifetime_randomness = 0.74
+draw_order = 1
+emission_shape = 2
+emission_sphere_radius = 16.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 30)
+initial_velocity_min = 20.0
+initial_velocity_max = 44.0
+damping_min = 2.0
+damping_max = 6.0
+scale_amount_min = 0.4
+scale_amount_max = 0.9
+color_ramp = SubResource("Gradient_1relt")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+anim_offset_max = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mcbya")
+}

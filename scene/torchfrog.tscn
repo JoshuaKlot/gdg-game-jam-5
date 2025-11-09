@@ -10,7 +10,7 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icg1l"]
 size = Vector2(16, 16)
 
-[node name="TorchFrog" type="Sprite2D"]
+[node name="TorchFrog" type="Sprite2D" groups=["TorchFrog"]]
 y_sort_enabled = true
 texture = SubResource("AtlasTexture_6wjlc")
 script = ExtResource("1_lf4n2")

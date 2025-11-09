@@ -24,13 +24,13 @@ func _ready():
 		font.set_glyph_uv_rect(0, fsize, i, Rect2(height * x, height * y, width, height))
 		font.set_glyph_advance(0, height, i, Vector2i(width, 0))
 		font.set_glyph_offset(0, fsize, i, Vector2i(0, 0))
-		
+
 	font.set_cache_ascent(0, height, 0)
 	font.set_cache_descent(0, height, height - 3)
 	font.set_cache_scale(0, height, 1)
 	font.allow_system_fallback = false
-	
+
 	ResourceSaver.save(font, "res://font_%d.tres" % height)
-	
+
 	add_theme_font_size_override("font_size", height)
 	add_theme_font_override("font", load("res://font_%d.tres" % height))#font)
