@@ -43,6 +43,7 @@ IcePlatform=""
 Icy=""
 WorldLayer=""
 BlockSpell=""
+Rock_Spell=""
 
 [input]
 

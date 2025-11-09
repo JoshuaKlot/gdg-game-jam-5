@@ -7,6 +7,18 @@ var direction=Vector2.DOWN
 var movingTowards
 var moving=false
 
+func _ready():
+	var prev_rock=get_tree().get_first_node_in_group("Rock_Spell")
+	if prev_rock != self:
+		prev_rock.queue_free()
+	position=position+_G.throwingDirection*tile_size
+	thrown=_G.throwing
+	_G.throwing=false
+	if thrown:
+		moving=true
+		direction = _G.throwingDirection
+		move(tile_size*3,_G.throwingDirection)
+
 func move(distance,moveTo):
 	print("moving from "+str(position)+" to "+str(position+(distance*moveTo)))
 	movingTowards=position+(distance*moveTo)

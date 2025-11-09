@@ -32,7 +32,7 @@ const spell_scenes: Dictionary[int, PackedScene] = {
 	Spell.FIRE: preload("res://scene/fire_spell.tscn"),
 	Spell.AIR: preload("res://scene/air_spell.tscn"),
 	Spell.ICE: preload("res://scene/ice_spell.tscn"),
-	Spell.ROCK:preload("res://scene/rock.tscn")
+	Spell.ROCK:preload("res://scene/rock_spell.tscn")
 }
 @warning_ignore("unused_signal")
 signal request_cast_spell(spell: int)
