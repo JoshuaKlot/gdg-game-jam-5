@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://b1rutehiu331q"]
 
 [ext_resource type="TileSet" uid="uid://itlf3q1ll4dv" path="res://asset/world_tileset.tres" id="1_2my6p"]
-[ext_resource type="Script" uid="uid://c0soyym8a2ah5" path="res://scene/rooms/1_torch_puzzle.gd" id="1_kd7lg"]
+[ext_resource type="Script" path="res://scene/rooms/1_torch_puzzle.gd" id="1_kd7lg"]
 [ext_resource type="PackedScene" uid="uid://dhwyvdf5x2yfu" path="res://scene/doorway.tscn" id="2_3f387"]
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="2_dw83u"]
 [ext_resource type="FontFile" uid="uid://clij8gx6fnknj" path="res://font_8.tres" id="3_0gr7d"]
@@ -48,6 +48,10 @@ img = ExtResource("5_kd7lg")
 
 [node name="DoorwayExitEntrance" parent="." instance=ExtResource("3_dw83u")]
 position = Vector2(40, 80)
+
+[node name="DoorwayEntrance3" parent="." instance=ExtResource("2_3f387")]
+position = Vector2(307, 269)
+load_room = 2
 
 [node name="DoorwayEntrance2" parent="." instance=ExtResource("2_3f387")]
 position = Vector2(16, 80)

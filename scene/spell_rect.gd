@@ -8,6 +8,11 @@ extends TextureRect
 
 var action_name := ""
 
+func _ready() -> void:
+	# Same issue as with the lizards. All spell_rect share the same AtlasTexture
+	# and affect each other.
+	texture = texture.duplicate()
+
 func redraw() -> void:
 	assert(spell != -1, "spell must be set before redraw")
 	assert(index != -1, "index must be set before redraw")

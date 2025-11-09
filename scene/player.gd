@@ -38,12 +38,12 @@ func nearest_sigil(v: Vector2i) -> int:
 	return _G.coords_to_sigil(coords)
 
 
-func room_changed() -> void:
+func room_changed(room: int) -> void:
 	camera.reset_smoothing()
-	camera.limit_left=_G.camera_constraints[_G.currentRoom][0]
-	camera.limit_top=_G.camera_constraints[_G.currentRoom][1]
-	camera.limit_right=_G.camera_constraints[_G.currentRoom][2]
-	camera.limit_bottom=_G.camera_constraints[_G.currentRoom][3]
+	camera.limit_left = _G.camera_constraints[room][0]
+	camera.limit_top = _G.camera_constraints[room][1]
+	camera.limit_right = _G.camera_constraints[room][2]
+	camera.limit_bottom = _G.camera_constraints[room][3]
 	sigil_layer = get_tree().get_first_node_in_group("SigilLayer")
 	for i in 9:
 		Darkness.get_node("ColorRect").material["shader_parameter/lights_on"][1 + i] = 0
@@ -78,7 +78,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	var player_tile := to_tile_pos(position)
-	if nearest_sigil(player_tile) >= 0:
+	var near_sigil := nearest_sigil(player_tile)
+	if near_sigil >= 0 && near_sigil not in _G.collected_sigils:
 		sigil_glow = lerpf(sigil_glow, 1, delta * 2)
 	else:
 		sigil_glow = lerpf(sigil_glow, 0, delta * 3)

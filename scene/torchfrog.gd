@@ -14,7 +14,7 @@ func _area_entered(a: Area2D) -> void:
 	if a.is_in_group("Flaming"):
 		enflame()
 
-func room_changed() -> void:
+func room_changed(_room: int) -> void:
 	if !player || !_G.inventory.has(_G.Item.TORCHFROG):
 		return
 
