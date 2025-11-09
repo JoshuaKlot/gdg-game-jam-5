@@ -5,7 +5,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4pswi"]
 shader = ExtResource("1_r3mm5")
 shader_parameter/size = 0.0
-shader_parameter/pos = Vector2(0, 0)
+shader_parameter/pos = Vector2(-1000, -1000)
 shader_parameter/lights = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 shader_parameter/lights_on = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
