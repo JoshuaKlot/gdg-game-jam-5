@@ -13,6 +13,7 @@ extends Node2D
 @onready var castready_particles: CPUParticles2D = $CastReady/CPUParticles2D
 
 func sigil_collected(_s) -> void:
+	$AudioStreamPlayer.play()
 	learned_light.enabled = true
 	learned_anim_player.play("fade_light")
 	learned_particles.emitting = true

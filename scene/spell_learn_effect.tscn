@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://1r8xibis4w0t"]
+[gd_scene load_steps=15 format=3 uid="uid://csoy04bxs0224"]
 
 [ext_resource type="Script" uid="uid://bu6hspvh58yek" path="res://scene/spell_learn_effect.gd" id="1_nrs18"]
 [ext_resource type="Texture2D" uid="uid://47cihrn77eye" path="res://asset/learn_sparkle.png" id="1_tws4q"]
+[ext_resource type="AudioStream" uid="uid://bng326xkupjrg" path="res://audio/newsigil.mp3" id="3_1relt"]
 
 [sub_resource type="Gradient" id="Gradient_nrs18"]
 offsets = PackedFloat32Array(0, 0.75645226)
@@ -164,3 +165,6 @@ anim_offset_max = 1.0
 libraries = {
 &"": SubResource("AnimationLibrary_1relt")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1relt")
