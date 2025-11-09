@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://cdnq1ofeo2v5d"]
+[gd_scene load_steps=4 format=4 uid="uid://bm6rcl4alpleg"]
 
 [ext_resource type="TileSet" uid="uid://itlf3q1ll4dv" path="res://asset/world_tileset.tres" id="1_qnq52"]
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="2_dckn5"]
+[ext_resource type="PackedScene" uid="uid://c3l7uu3p7rl4p" path="res://scene/doorway_exit.tscn" id="3_dckn5"]
 
 [node name="2_rock_puzzle" type="Node2D"]
 
@@ -13,3 +14,7 @@ tile_set = ExtResource("1_qnq52")
 rotation = -0.0068274457
 tile_map_data = PackedByteArray("AAAFAP7/AQAAAAAAAAA=")
 tile_set = ExtResource("2_dckn5")
+
+[node name="DoorwayExit" parent="." instance=ExtResource("3_dckn5")]
+position = Vector2(52, 82)
+spawn_from = 1
