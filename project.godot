@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 _G="*res://globals.gd"
 Darkness="*res://scene/darkness.tscn"
+Music="*res://scene/music.tscn"
 
 [display]
 
