@@ -8,7 +8,7 @@ var on_fire := false:
 @onready var player = get_tree().get_first_node_in_group("Player")
 
 func _ready() -> void:
-	if _G.torch_puzzle_lit.get_or_add(position, false):
+	if _G.torch_puzzle_lit.get_or_add(position, id == 1):
 		call_deferred("enflame")
 	z_index = floori(global_position.y)
 
