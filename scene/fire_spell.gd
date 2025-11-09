@@ -12,7 +12,6 @@ func _ready() -> void:
 	thrown=_G.throwing
 	_G.throwing=false
 	if thrown:
-		print("I HAVE BEEN THROWN")
 		tween=create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 		tween.stop()
 		tween.tween_property(self,"position",position+(distance*_G.throwingDirection),lifetime)
