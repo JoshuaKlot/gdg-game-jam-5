@@ -4,4 +4,4 @@ extends Sprite2D
 @onready var t = 0.
 
 func _process(delta: float) -> void:
-	position.y = start_pos + 10 * sin(delta)
+	position.y = start_pos.y + 10 * sin(delta)
