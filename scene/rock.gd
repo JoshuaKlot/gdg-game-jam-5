@@ -1,10 +1,21 @@
 extends RigidBody2D
 
+@export var thrown :=false
 @export var tile_size=16
 @export var speed: float = 20
 var direction=Vector2.DOWN
 var movingTowards
 var moving=false
+
+func _ready():
+	position=position+_G.throwingDirection*tile_size
+	thrown=_G.throwing
+	_G.throwing=false
+	if thrown:
+		moving=true
+		direction = _G.throwingDirection
+		move(tile_size*3,_G.throwingDirection)
+
 func move(distance,moveTo):
 	print("moving from "+str(position)+" to "+str(position+(distance*moveTo)))
 	movingTowards=position+(distance*moveTo)
