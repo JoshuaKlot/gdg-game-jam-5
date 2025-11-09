@@ -19,26 +19,22 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("Windy")):
-		
-		if not tween.is_running():
-				
-			var direction=Vector2.DOWN
-			var hitFrom=area.position-position
-			if abs(hitFrom.x)>abs(hitFrom.y):
-				if hitFrom.x>0:
-					direction=Vector2.LEFT
-				else:
-					direction=Vector2.RIGHT
+		var direction=Vector2.DOWN
+		var hitFrom=area.position-position
+		if abs(hitFrom.x)>abs(hitFrom.y):
+			if hitFrom.x>0:
+				direction=Vector2.LEFT
 			else:
-				if hitFrom.y>0:
-					direction=Vector2.UP
-				else:
-					direction=Vector2.DOWN
-			$RayCast2D.rotation=direction
-			if area.thrown:
-				move(tile_size*3,direction)
+				direction=Vector2.RIGHT
+		else:
+			if hitFrom.y>0:
+				direction=Vector2.UP
 			else:
-				move(tile_size,direction)
+				direction=Vector2.DOWN
+		if area.thrown:
+			move(tile_size*3,direction)
+		else:
+			move(tile_size,direction)
 	
 
 
