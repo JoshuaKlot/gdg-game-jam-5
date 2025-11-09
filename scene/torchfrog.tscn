@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://beppvlffivbr4"]
+[gd_scene load_steps=7 format=3 uid="uid://beppvlffivbr4"]
 
 [ext_resource type="Texture2D" uid="uid://c3wqu1sjpi1yp" path="res://asset/torchfrog.png" id="1_6wjlc"]
 [ext_resource type="Script" uid="uid://cq81ghyyvy0nf" path="res://scene/torchfrog.gd" id="1_lf4n2"]
+[ext_resource type="AudioStream" uid="uid://dkc1rfdxvu472" path="res://audio/torchfrog1.mp3" id="3_1vthd"]
+[ext_resource type="AudioStream" uid="uid://cuny80bdunfl" path="res://audio/torchfrog2.mp3" id="4_yujwn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6wjlc"]
 atlas = ExtResource("1_6wjlc")
@@ -20,3 +22,9 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_icg1l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1vthd")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yujwn")
