@@ -3,7 +3,9 @@ extends Node
 
 var casting := false
 var cur_cast_method: CastMethod = CastMethod.GROUND
-
+var canThrow := true
+var throwing = false
+var throwingDirection = Vector2.DOWN
 enum Spell {
 	FIRE,
 	AIR,

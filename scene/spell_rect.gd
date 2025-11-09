@@ -35,4 +35,5 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	if _G.casting && event.is_action_pressed(action_name):
+		#_G.spell_scenes[spell].thrown=_G.throwing
 		_G.request_cast_spell.emit(spell)

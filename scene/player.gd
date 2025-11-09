@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 110.0
 const ACCEL = 920.0
 const DECEL = 760.0
-
+var facing_direction=Vector2.DOWN
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var camera:Camera2D=$Camera2D
 var sigil_layer: TileMapLayer = null
@@ -61,7 +61,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	var move_vec := Vector2.ZERO if camera_shaking else Input.get_vector("p_left", "p_right", "p_up", "p_down")
 	z_index = floori(global_position.y)
-
+	
+	_G.throwingDirection=facing_direction
+	if _G.throwing:
+		sprite.self_modulate=Color(210.813, 90.926, 78.082, 1.0)
+	else:
+		sprite.self_modulate=Color(1,1,1,1)
+		
 	if move_vec:
 		velocity = velocity.move_toward(move_vec * SPEED, ACCEL * delta)
 	else:
@@ -71,8 +77,16 @@ func _physics_process(delta: float) -> void:
 		if velocity.abs().max_axis_index() == Vector2.AXIS_X:
 			sprite.play("side")
 			sprite.flip_h = velocity.x >= 0
+			if(velocity.x>0):
+				facing_direction=Vector2.RIGHT
+			else:
+				facing_direction=Vector2.LEFT
 		else:
 			sprite.play("front" if velocity.y >= 0 else "back")
+			if(velocity.y>0):
+				facing_direction=Vector2.DOWN
+			else:
+				facing_direction=Vector2.UP
 	else:
 		sprite.stop()
 

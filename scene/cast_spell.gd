@@ -20,11 +20,18 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if _G.collected_sigils.size() == 0:
 		return
-
+	if event.is_action_pressed("throw_toggle") and _G.casting and _G.canThrow:
+		if _G.throwing:
+			print("off")
+			_G.throwing=false
+		else:
+			print("on")
+			_G.throwing=true
 	if event.is_action_pressed("p_cast") and !_G.casting:
 		_G.casting = true
 		# anim_player.play("appear", -1, 5)
 	elif event.is_action_pressed("cast_cancel") and _G.casting:
 		_G.casting = false
+		_G.throwing=false
 
 	visible = _G.casting
