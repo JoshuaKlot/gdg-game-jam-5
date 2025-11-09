@@ -59,6 +59,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_G.collect_sigil(sigil)
 
 func _physics_process(delta: float) -> void:
+	z_index = floori(global_position.y)
 	var move_vec := Vector2.ZERO if camera_shaking else Input.get_vector("p_left", "p_right", "p_up", "p_down")
 
 	_G.throwingDirection=facing_direction
