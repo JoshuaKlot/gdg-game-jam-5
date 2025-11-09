@@ -37,7 +37,6 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if tween.is_running():
 		Darkness.get_node("ColorRect").material["shader_parameter/lights_on"][9] = (1.5 - scale.x) * (.8/.5)
-		print(Darkness.get_node("ColorRect").material["shader_parameter/lights_on"][9])
 		Darkness.get_node("ColorRect").material["shader_parameter/lights"][9] = global_position - player.get_node("Camera2D").get_screen_center_position() + Vector2(256/2, 192/2)
 		return
 	Darkness.get_node("ColorRect").material["shader_parameter/lights_on"][9] = 0
