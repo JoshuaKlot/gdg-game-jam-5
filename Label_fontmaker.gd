@@ -5,7 +5,7 @@ extends Label
 @export var height : int = 8
 
 func _ready():
-	if not Engine.is_editor_hint(): return
+	#if not Engine.is_editor_hint(): return
 	var font := FontFile.new()
 	#var img := preload("res://big-font.png")
 	var fsize := Vector2i(height, 0)

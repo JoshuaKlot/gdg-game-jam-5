@@ -25,7 +25,6 @@ tile_set = ExtResource("1_qnq52")
 position = Vector2(1, 0)
 rotation = -0.0068274457
 tile_map_data = PackedByteArray("AAAMAP7/AQABAAAAAAA=")
-
 tile_set = ExtResource("2_dckn5")
 
 [node name="DoorwayExitTorchPuzzle" parent="." instance=ExtResource("3_dckn5")]
@@ -68,21 +67,21 @@ script = ExtResource("7_tsevb")
 img = ExtResource("8_cue7y")
 
 [connection signal="area_entered" from="RockLayer/rock" to="RockLayer/rock" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@195663" to="RockLayer/@Area2D@195663" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@195664" to="RockLayer/@Area2D@195664" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@195665" to="RockLayer/@Area2D@195665" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@195666" to="RockLayer/@Area2D@195666" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@195667" to="RockLayer/@Area2D@195667" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@195668" to="RockLayer/@Area2D@195668" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@195669" to="RockLayer/@Area2D@195669" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@197049" to="RockLayer/@Area2D@197049" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@197051" to="RockLayer/@Area2D@197051" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@197052" to="RockLayer/@Area2D@197052" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@197053" to="RockLayer/@Area2D@197053" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@197054" to="RockLayer/@Area2D@197054" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@197055" to="RockLayer/@Area2D@197055" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@197057" to="RockLayer/@Area2D@197057" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@197058" to="RockLayer/@Area2D@197058" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@197059" to="RockLayer/@Area2D@197059" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@197060" to="RockLayer/@Area2D@197060" method="_on_area_entered"]
-[connection signal="area_entered" from="RockLayer/@Area2D@197061" to="RockLayer/@Area2D@197061" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211372" to="RockLayer/@Area2D@211372" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211373" to="RockLayer/@Area2D@211373" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211374" to="RockLayer/@Area2D@211374" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211375" to="RockLayer/@Area2D@211375" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211376" to="RockLayer/@Area2D@211376" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211377" to="RockLayer/@Area2D@211377" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211378" to="RockLayer/@Area2D@211378" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211379" to="RockLayer/@Area2D@211379" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211380" to="RockLayer/@Area2D@211380" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211381" to="RockLayer/@Area2D@211381" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211382" to="RockLayer/@Area2D@211382" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211383" to="RockLayer/@Area2D@211383" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211384" to="RockLayer/@Area2D@211384" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211385" to="RockLayer/@Area2D@211385" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211386" to="RockLayer/@Area2D@211386" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211387" to="RockLayer/@Area2D@211387" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211388" to="RockLayer/@Area2D@211388" method="_on_area_entered"]
+[connection signal="area_entered" from="RockLayer/@Area2D@211389" to="RockLayer/@Area2D@211389" method="_on_area_entered"]
