@@ -75,13 +75,16 @@ signal room_changed
 
 
 var torch_puzzle_lit: Dictionary[Vector2, bool] = {}
+@warning_ignore("unused_signal")
+signal torch_puzzle_changed
 
 func torch_puzzle_all_lit() -> bool:
+	var count := 0
 	for torch_pos in torch_puzzle_lit:
+		count += 1
 		if !torch_puzzle_lit[torch_pos]:
 			return false
-
-	return true
+	return count > 0
 
 func play_sound(stream: AudioStream, parent: Node = null, pitch = 1.0):
 	var a = AudioStreamPlayer.new()
