@@ -53,6 +53,10 @@ func change_room(room: int) -> void:
 			spawn_at = e
 			break
 
+	if spawn_at == null:
+		push_error("no contiguous DoorwayExit nor PlayerSpawn found, using first DoorwayExit (room {0} -> {1})".format([old_room_int, cur_room_int]))
+		spawn_at = get_tree().get_first_node_in_group("DoorwayExit")
+
 	player.position = spawn_at.position
 
 	cur_room_source = room_scene
