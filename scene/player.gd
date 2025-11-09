@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 140.0
-const ACCEL = 1200.0
-const DECEL = 1000.0
+const SPEED = 110.0
+const ACCEL = 920.0
+const DECEL = 760.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var camera:Camera2D=$Camera2D
