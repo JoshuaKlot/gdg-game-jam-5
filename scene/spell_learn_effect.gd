@@ -24,6 +24,7 @@ func can_cast_changed(can: bool):
 	if !can:
 		return
 
+	$AudioStreamPlayer2.play()
 	castready_light.enabled = true
 	castready_anim_player.play("fade_light")
 	castready_particles.emitting = true
