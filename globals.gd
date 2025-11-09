@@ -7,19 +7,22 @@ var progressBlocked := false
 
 enum Spell {
 	FIRE,
+	AIR,
 }
 
 const atlas_tile_size := Vector2i(16, 16)
 const atlas_size := Vector2i(4, 4)
 const sigil_atlas_coords: Dictionary[int, Vector2i] = {
 	Spell.FIRE: atlas_tile_size * Vector2i(0, 0),
+	Spell.AIR: atlas_tile_size * Vector2i(1, 0),
 }
 
 var collected_sigils: Array[int] = []
 signal sigil_collected(sigil: int)
 
 const spell_scenes: Dictionary[int, PackedScene] = {
-	Spell.FIRE: preload("res://scene/fire_spell.tscn")
+	Spell.FIRE: preload("res://scene/fire_spell.tscn"),
+	Spell.AIR: preload("res://scene/air_spell.tscn"),
 }
 @warning_ignore("unused_signal")
 signal request_cast_spell(spell: int)

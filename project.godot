@@ -36,6 +36,8 @@ Player=""
 Doorway=""
 Windy=""
 TorchFrog=""
+Flaming=""
+Throwable=""
 
 [input]
 
