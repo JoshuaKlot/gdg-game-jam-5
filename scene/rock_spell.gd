@@ -26,12 +26,12 @@ func move(distance,moveTo):
 	print("moving from "+str(position)+" to "+str(position+(distance*moveTo)))
 	movingTowards=position+(distance*moveTo)
 	moving=true
-	
-	
+
+
 func _physics_process(delta: float) -> void:
 	if moving:
 		linear_velocity=direction*speed
-		
+
 		$AnimatedSprite2D.play("moving")
 		print(position.distance_to(movingTowards))
 		if position.distance_to(movingTowards) <= 0.1 or linear_velocity==Vector2.ZERO:
@@ -39,14 +39,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		linear_velocity=Vector2.ZERO
 		$AnimatedSprite2D.play("default")
-	
-	
+
+
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("Windy")):
 
-		
-		
+
+
 		direction=_G.throwingDirection
 		#if abs(hitFrom.x)>abs(hitFrom.y):
 			#if hitFrom.x>0:

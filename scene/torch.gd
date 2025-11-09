@@ -9,13 +9,14 @@ var on_fire := false:
 
 func _ready() -> void:
 	if _G.torch_puzzle_lit.get_or_add(position, id == 1):
-		call_deferred("enflame")
+		call_deferred("enflame", false)
 	z_index = floori(global_position.y)
 
-func enflame() -> void:
+func enflame(play_fx: bool = true) -> void:
 	if not on_fire:
 
-		$AudioStreamPlayer.play()
+		if play_fx:
+			$AudioStreamPlayer.play()
 		_G.torch_puzzle_lit.set(position, true)
 		_G.torch_puzzle_changed.emit()
 		play("lit")

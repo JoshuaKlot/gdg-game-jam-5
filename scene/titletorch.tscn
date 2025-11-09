@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgxwws10ymwvn"]
+[gd_scene load_steps=8 format=3 uid="uid://cvvi0pwfkcxxv"]
 
 [ext_resource type="Texture2D" uid="uid://d0xf58s1afnup" path="res://asset/torch.png" id="1_noimp"]
 [ext_resource type="Script" uid="uid://tjewlf7si0l" path="res://scene/titletorch.gd" id="2_noimp"]

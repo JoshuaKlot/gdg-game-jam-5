@@ -25,6 +25,7 @@ Music="*res://scene/music.tscn"
 
 window/size/viewport_width=256
 window/size/viewport_height=192
+window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 

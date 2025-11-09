@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=4 uid="uid://d32lvn17pwvrm"]
+[gd_scene load_steps=10 format=4 uid="uid://d32lvn17pwvrm"]
 
 [ext_resource type="Script" uid="uid://c35lwx71mpjq6" path="res://scene/rooms/title_screen.gd" id="1_srs6y"]
 [ext_resource type="TileSet" uid="uid://itlf3q1ll4dv" path="res://asset/world_tileset.tres" id="2_tk3pc"]
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="3_31ogd"]
-[ext_resource type="FontFile" uid="uid://bvfy7hvwaku83" path="res://font_24.tres" id="4_nyx3p"]
+[ext_resource type="FontFile" uid="uid://cmq0wuw6hkn7e" path="res://font_8.tres" id="4_r5pxi"]
 [ext_resource type="Script" uid="uid://nbwr5pxdm2jf" path="res://Label_fontmaker.gd" id="5_q7y7j"]
 [ext_resource type="Image" uid="uid://giduoh6jvbgx" path="res://font-serif.png" id="6_do5dw"]
-[ext_resource type="PackedScene" uid="uid://bgxwws10ymwvn" path="res://scene/titletorch.tscn" id="7_y2k2l"]
+[ext_resource type="PackedScene" uid="uid://cvvi0pwfkcxxv" path="res://scene/titletorch.tscn" id="7_y2k2l"]
+[ext_resource type="Texture2D" uid="uid://dixmd0u21tn8e" path="res://asset/title.png" id="8_e4gv1"]
+[ext_resource type="Script" uid="uid://bjb0n7n7xk58k" path="res://scene/rooms/title.gd" id="9_yu6d0"]
 
 [node name="titleScreen" type="Node2D"]
 script = ExtResource("1_srs6y")
@@ -22,11 +24,12 @@ tile_map_data = PackedByteArray("AAAHAAAAAQAAAAAAAAA=")
 tile_set = ExtResource("3_31ogd")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 123.0
-offset_top = 13.0
-offset_right = 232.0
-offset_bottom = 128.0
-theme_override_fonts/font = ExtResource("4_nyx3p")
+visible = false
+offset_left = 128.0
+offset_top = 16.0
+offset_right = 237.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("4_r5pxi")
 theme_override_font_sizes/font_size = 8
 text = "Lost 
 In Incantaion
@@ -63,5 +66,11 @@ autostart = true
 position = Vector2(176, 64)
 
 [node name="Camera2D" type="Camera2D" parent="Torch"]
+position = Vector2(0, 8)
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(176, 72)
+texture = ExtResource("8_e4gv1")
+script = ExtResource("9_yu6d0")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
