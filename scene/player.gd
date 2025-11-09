@@ -55,7 +55,10 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("p_collect"):
 		var sigil := nearest_sigil(to_tile_pos(position))
-		if sigil >= 0:
+		if sigil == _G.Spell.THROW:
+			_G.canThrow = true
+			_G.sigil_collected.emit(_G.Spell.THROW)
+		elif sigil >= 0:
 			_G.collect_sigil(sigil)
 
 func _physics_process(delta: float) -> void:
@@ -94,7 +97,8 @@ func _physics_process(delta: float) -> void:
 
 	var player_tile := to_tile_pos(position)
 	var near_sigil := nearest_sigil(player_tile)
-	if near_sigil >= 0 && near_sigil not in _G.collected_sigils:
+	if (near_sigil >= 0 && near_sigil != _G.Spell.THROW && near_sigil not in _G.collected_sigils) \
+	|| (near_sigil == _G.Spell.THROW && !_G.canThrow):
 		sigil_glow = lerpf(sigil_glow, 1, delta * 2)
 	else:
 		sigil_glow = lerpf(sigil_glow, 0, delta * 3)

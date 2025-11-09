@@ -5,7 +5,7 @@ var casting := false
 var can_cast := true
 @warning_ignore("unused_signal")
 signal can_cast_changed(can: bool)
-var canThrow := true
+var canThrow := false
 var throwing = false
 var throwingDirection = Vector2.DOWN
 
@@ -13,7 +13,8 @@ enum Spell {
 	FIRE,
 	AIR,
 	ICE,
-	ROCK
+	ROCK,
+	THROW,
 }
 
 const atlas_tile_size := Vector2i(16, 16)
@@ -22,7 +23,8 @@ const sigil_atlas_coords: Dictionary[int, Vector2i] = {
 	Spell.FIRE: atlas_tile_size * Vector2i(0, 0),
 	Spell.AIR: atlas_tile_size * Vector2i(1, 0),
 	Spell.ICE: atlas_tile_size * Vector2i(2, 0),
-	Spell.ROCK:atlas_tile_size *Vector2i(3,0)
+	Spell.ROCK:atlas_tile_size *Vector2i(3,0),
+	Spell.THROW: atlas_tile_size * Vector2i(0, 3),
 }
 
 var collected_sigils: Array[int] = []
@@ -119,7 +121,7 @@ func torch_puzzle_all_lit() -> bool:
 func torch_puzzle2_correct() -> bool:
 	print(torch_puzzle_lit)
 	if torch_puzzle_lit.size() != 5: return false
-	
+
 	var correct = [false, false, true, true, false]
 	torch_puzzle_lit.sort()
 	var k = torch_puzzle_lit.keys()

@@ -25,6 +25,7 @@ tile_set = ExtResource("1_qnq52")
 position = Vector2(1, 0)
 rotation = -0.0068274457
 tile_map_data = PackedByteArray("AAAMAP7/AQABAAAAAAA=")
+
 tile_set = ExtResource("2_dckn5")
 
 [node name="DoorwayExitTorchPuzzle" parent="." instance=ExtResource("3_dckn5")]
