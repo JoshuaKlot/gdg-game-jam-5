@@ -6,8 +6,8 @@
 shader = ExtResource("1_r3mm5")
 shader_parameter/size = 100.0
 shader_parameter/pos = Vector2(0, 0)
-shader_parameter/pos2 = Vector2(-1, -1)
-shader_parameter/mode = 0
+shader_parameter/lights = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/lights_on = PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [node name="Darkness" type="CanvasLayer"]
 

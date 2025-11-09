@@ -45,6 +45,8 @@ func room_changed() -> void:
 	camera.limit_right=_G.camera_constraints[_G.currentRoom][2]
 	camera.limit_bottom=_G.camera_constraints[_G.currentRoom][3]
 	sigil_layer = get_tree().get_first_node_in_group("SigilLayer")
+	for i in 9:
+		Darkness.get_node("ColorRect").material["shader_parameter/lights_on"][1 + i] = 0
 
 func _ready() -> void:
 	_G.room_changed.connect(room_changed)
@@ -87,7 +89,7 @@ func _physics_process(delta: float) -> void:
 	Darkness.get_node("ColorRect").material["shader_parameter/pos"] = global_position - $Camera2D.get_screen_center_position() + Vector2(256/2, 192/2)
 	if _G.inventory.has(_G.Item.TORCHFROG) and get_children().size() >= 4:
 		@warning_ignore("integer_division")
-		Darkness.get_node("ColorRect").material["shader_parameter/pos2"] = get_tree().get_first_node_in_group("TorchFrog").global_position - $Camera2D.get_screen_center_position() + Vector2(256/2, 192/2)
+		Darkness.get_node("ColorRect").material["shader_parameter/lights"][0] = get_tree().get_first_node_in_group("TorchFrog").global_position - $Camera2D.get_screen_center_position() + Vector2(256/2, 192/2)
 	Darkness.get_node("ColorRect").material["shader_parameter/size"] = 80 + 10 * sin(2*Time.get_unix_time_from_system())
 
 	if camera_shaking: $Camera2D.offset = 2*Vector2(randf()*2-1, randf()*2-1)

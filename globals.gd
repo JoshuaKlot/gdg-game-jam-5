@@ -78,6 +78,7 @@ signal room_changed
 
 
 var torch_puzzle_lit: Dictionary[Vector2, bool] = {}
+var torch_ids: Dictionary[Vector2, int] = {}
 @warning_ignore("unused_signal")
 signal torch_puzzle_changed
 
