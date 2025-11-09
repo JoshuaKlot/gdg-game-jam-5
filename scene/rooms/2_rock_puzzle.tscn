@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://ddwl0vpbepanw"]
+[gd_scene load_steps=8 format=4 uid="uid://cku0yspdhekey"]
 
 [ext_resource type="TileSet" uid="uid://itlf3q1ll4dv" path="res://asset/world_tileset.tres" id="1_qnq52"]
 [ext_resource type="TileSet" uid="uid://bfjqoml6h4qi" path="res://asset/sigil_tilset.tres" id="2_dckn5"]
-[ext_resource type="PackedScene" uid="uid://c3l7uu3p7rl4p" path="res://scene/doorway_exit.tscn" id="3_dckn5"]
+[ext_resource type="PackedScene" path="res://scene/doorway_exit.tscn" id="3_dckn5"]
 [ext_resource type="PackedScene" uid="uid://da1sxrmttrbqa" path="res://scene/rock.tscn" id="3_raj5s"]
 [ext_resource type="PackedScene" uid="uid://dhwyvdf5x2yfu" path="res://scene/doorway.tscn" id="4_ms0js"]
 
@@ -34,5 +34,13 @@ load_room = 1
 [node name="RockLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAIAAQAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_74b6j")
+
+[node name="DoorwayExitLizardWizard" parent="." instance=ExtResource("3_dckn5")]
+position = Vector2(40, 80)
+spawn_from = 3
+
+[node name="DoorwayLizardWizard" parent="." instance=ExtResource("4_ms0js")]
+position = Vector2(16, 80)
+load_room = 3
 
 [connection signal="area_entered" from="RockLayer/rock" to="RockLayer/rock" method="_on_area_entered"]
