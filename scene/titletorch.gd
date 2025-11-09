@@ -14,13 +14,15 @@ func _ready() -> void:
 
 func enflame() -> void:
 	if not on_fire:
+		_G.torch_puzzle_lit.set(position, true)
+		_G.torch_puzzle_changed.emit()
+
 		Darkness.get_node("ColorRect").material["shader_parameter/size"] = 0
 		for i in 40:
 			Darkness.get_node("ColorRect").material["shader_parameter/size"] = i / 40. * (80 + 5 * sin(2*Time.get_unix_time_from_system()))
 			await get_tree().process_frame
+
 		$AudioStreamPlayer.play()
-		_G.torch_puzzle_lit.set(position, true)
-		_G.torch_puzzle_changed.emit()
 		play("lit")
 		on_fire = true
 
@@ -40,7 +42,7 @@ func extinguish() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Flaming"):
 		enflame()
-		
+
 	elif area.is_in_group("Windy"):
 		extinguish()
 
