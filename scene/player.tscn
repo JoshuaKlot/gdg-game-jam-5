@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://b68gom3wdvx83"]
+[gd_scene load_steps=18 format=3 uid="uid://b68gom3wdvx83"]
 
 [ext_resource type="Script" uid="uid://c02m2ffgkcsit" path="res://scene/player.gd" id="1_xo3ru"]
 [ext_resource type="Texture2D" uid="uid://buxmjwjmyn7sg" path="res://asset/wizard16.png" id="2_hjaqi"]
+[ext_resource type="PackedScene" path="res://scene/spell_learn_effect.tscn" id="3_fvtld"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvtld"]
 atlas = ExtResource("2_hjaqi")
@@ -124,3 +125,5 @@ shape = SubResource("CapsuleShape2D_xo3ru")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="SpellLearnEffect" parent="." instance=ExtResource("3_fvtld")]

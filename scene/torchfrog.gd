@@ -33,7 +33,7 @@ func _ready() -> void:
 	_G.room_changed.connect(room_changed)
 
 func _process(delta: float) -> void:
-	z_index=global_position.y
+	z_index = floori(global_position.y)
 	# Sorry, not sorry
 	if !player:
 		player = get_tree().get_first_node_in_group("Player")
@@ -67,7 +67,7 @@ func enflame() -> void:
 		(texture as AtlasTexture).region.position = Vector2(16, 0)
 		top_level = true # Don't inherit player position
 		call_deferred("reparent", player)
-		
+
 		player.camera_shaking = true
 		get_tree().create_timer(2).timeout.connect(cave_in)
 		get_tree().create_timer(4).timeout.connect(func(): player.camera_shaking = false)

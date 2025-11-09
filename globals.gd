@@ -3,7 +3,7 @@ extends Node
 
 var currentRoom := 0
 var casting := false
-
+var progressBlocked := false
 
 enum Spell {
 	FIRE,
@@ -43,7 +43,14 @@ func coords_to_sigil(v: Vector2i) -> int:
 		return -1
 
 	return sigil
-
+func check_progress():
+	var num_obstuctions=get_tree().get_nodes_in_group("BlockingProgress")
+	if(num_obstuctions.size()>0):
+		print("Blocking Progress: "+str(num_obstuctions.size()))
+		progressBlocked=true
+	else:
+		print("Progress unimpeeded. Continue")
+		progressBlocked=false
 
 enum Item {
 	TORCHFROG,
